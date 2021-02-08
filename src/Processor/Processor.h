@@ -9,9 +9,15 @@ namespace E6502
     class Processor
     {
         public:
-            Processor() = default;
+            Processor();
 
             ~Processor() = default;
+
+            /**
+             *  @brief Resets the processor to the initial state.
+             */
+            void
+            reset();
         private:
             Word PC;                            /**< Program Counter */
             Byte SP;                            /**< Stack Pointer */
