@@ -12,6 +12,7 @@ namespace E6502
         Byte I : 1;     /**< Interrupt Disable */
         Byte D : 1;     /**< Decimal */
         Byte B : 1;     /**< Break */
+        Byte Z_ :1;     /**< Unused */
         Byte V : 1;     /**< Overflow */
         Byte N : 1;     /**< Negative */
     };
