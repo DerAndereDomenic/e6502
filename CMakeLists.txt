@@ -8,6 +8,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
                                src/Core/Defines.h
                                src/Processor/Processor.h src/Processor/Processor.cpp
                                src/Processor/ProcessorStatus.h
+                               src/Processor/OpCodes.h
                                src/Memory/Memory.h src/Memory/Memory.cpp
 )
 
