@@ -7,9 +7,9 @@ int main()
     E6502::Processor procesor;
     E6502::Memory memory;
 
-    memory[INIT_STACK] = 5;
+    memory[STACK_START] = 5;
 
-    std::cout << static_cast<int>(memory[INIT_STACK]) << std::endl;
+    std::cout << static_cast<int>(memory[STACK_START]) << std::endl;
 
     return 0;
 }
