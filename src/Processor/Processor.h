@@ -3,6 +3,7 @@
 
 #include <Core/Defines.h>
 #include <Processor/ProcessorStatus.h>
+#include <Processor/OpCodes.h>
 
 namespace E6502
 {
