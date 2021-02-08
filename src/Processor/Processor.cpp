@@ -15,3 +15,11 @@ Processor::reset()
     SP = 0;
     PC = STACK_START + 1;
 }
+
+void
+Processor::start()
+{
+    //1) Fetch op
+    //2) Increment PC
+    //3) execute op
+}

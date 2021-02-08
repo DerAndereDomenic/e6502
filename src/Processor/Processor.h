@@ -20,6 +20,11 @@ namespace E6502
              */
             void
             reset();
+
+            /**
+             *  @brief Starts exectuting the processor starting at the program counter until BRK is encountered.
+             */
+            void start();
         private:
             Word PC;                            /**< Program Counter */
             Byte SP;                            /**< Stack Pointer */
