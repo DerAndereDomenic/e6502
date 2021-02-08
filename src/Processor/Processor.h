@@ -2,6 +2,7 @@
 #define __E6502_PROCESSOR_PROCESSOR_H
 
 #include <Core/Defines.h>
+#include <Processor/ProcessorStatus.h>
 
 namespace E6502
 {
@@ -12,11 +13,12 @@ namespace E6502
 
             ~Processor() = default;
         private:
-            Word PC;    /**< Program Counter */
-            Byte SP;    /**< Stack Pointer */
-            Byte A;     /**< Accumulator */
-            Byte X;     /**< Index Register X */
-            Byte Y;     /**< Index Register Y */
+            Word PC;                            /**< Program Counter */
+            Byte SP;                            /**< Stack Pointer */
+            Byte A;                             /**< Accumulator */
+            Byte X;                             /**< Index Register X */
+            Byte Y;                             /**< Index Register Y */
+            ProcessorStatus processor_status;   /**< The processor status */
     };
 }
 
