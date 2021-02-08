@@ -11,4 +11,5 @@ void
 Processor::reset()
 {
     SP = 0;
+    PC = STACK_START + 1;
 }
