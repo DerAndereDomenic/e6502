@@ -4,13 +4,14 @@
 #include <Core/Defines.h>
 #include <Processor/ProcessorStatus.h>
 #include <Processor/OpCodes.h>
+#include <Memory/Memory.h>
 
 namespace E6502
 {
     class Processor
     {
         public:
-            Processor();
+            Processor(Memory& memory);
 
             ~Processor() = default;
 
@@ -26,6 +27,7 @@ namespace E6502
             Byte X;                             /**< Index Register X */
             Byte Y;                             /**< Index Register Y */
             ProcessorStatus processor_status;   /**< The processor status */
+            Memory memory;                      /**< The memory the processor is working with */
     };
 }
 

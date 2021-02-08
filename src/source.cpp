@@ -4,8 +4,8 @@
 
 int main()
 {
-    E6502::Processor processor;
     E6502::Memory memory;
+    E6502::Processor processor(memory);
 
     memory[STACK_START] = 5;
 
