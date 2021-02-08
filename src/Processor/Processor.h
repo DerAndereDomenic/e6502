@@ -5,6 +5,7 @@
 #include <Processor/ProcessorStatus.h>
 #include <Processor/OpCodes.h>
 #include <Memory/Memory.h>
+#include <Instructions/Instruction.h>
 
 namespace E6502
 {
@@ -26,13 +27,15 @@ namespace E6502
              */
             void start();
         private:
-            Word PC;                            /**< Program Counter */
-            Byte SP;                            /**< Stack Pointer */
-            Byte A;                             /**< Accumulator */
-            Byte X;                             /**< Index Register X */
-            Byte Y;                             /**< Index Register Y */
-            ProcessorStatus processor_status;   /**< The processor status */
-            Memory memory;                      /**< The memory the processor is working with */
+            Word PC;                                                /**< Program Counter */
+            Byte SP;                                                /**< Stack Pointer */
+            Byte A;                                                 /**< Accumulator */
+            Byte X;                                                 /**< Index Register X */
+            Byte Y;                                                 /**< Index Register Y */
+            ProcessorStatus processor_status;                       /**< The processor status */
+            Memory memory;                                          /**< The memory the processor is working with */
+
+            Instruction* instructions[PAGE_SIZE] = {nullptr,};      /**< Array of alle instructions */   
     };
 }
 
