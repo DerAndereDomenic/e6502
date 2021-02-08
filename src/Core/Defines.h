@@ -1,5 +1,5 @@
-#ifndef __E6502_DEFINES_H
-#define __E6502_DEFINES_H
+#ifndef __E6502_CORE_DEFINES_H
+#define __E6502_CORE_DEFINES_H
 
 #include <cstdint>
 
