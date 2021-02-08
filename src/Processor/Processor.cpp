@@ -8,6 +8,17 @@ Processor::Processor(Memory& memory)
     reset();
 }
 
+Processor::~Processor()
+{
+    for(uint32_t i = 0; i < PAGE_SIZE; ++i)
+    {
+        if(instructions[i] != nullptr)
+        {
+            delete instructions[i];
+        }
+    }
+}
+
 void
 Processor::reset()
 {

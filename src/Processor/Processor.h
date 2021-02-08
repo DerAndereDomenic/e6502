@@ -14,7 +14,7 @@ namespace E6502
         public:
             Processor(Memory& memory);
 
-            ~Processor() = default;
+            ~Processor();
 
             /**
              *  @brief Resets the processor to the initial state.
