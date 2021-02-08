@@ -3,6 +3,7 @@
 
 #include <Core/Defines.h>
 #include <Processor/ProcessorStatus.h>
+#include <Memory/Memory.h>
 
 namespace E6502
 {
@@ -22,13 +23,15 @@ namespace E6502
              *  @param X The X register
              *  @param Y The Y register
              *  @param processor_status The processor status
+             *  @param memory The memory
              */
             virtual void operator()(Word& PC,                            
                                     Byte& SP,                         
                                     Byte& A,                             
                                     Byte& X,                             
                                     Byte& Y,                             
-                                    ProcessorStatus& processor_status) = 0;  
+                                    ProcessorStatus& processor_status,
+                                    Memory& memory) = 0;  
     };
 }
 
