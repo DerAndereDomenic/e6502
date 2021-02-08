@@ -12,7 +12,12 @@ namespace E6502
 
             ~Memory() = default;
 
-            Byte operator[](const Word& pointer);
+            /**
+             *  @brief Get the byte at the specified location
+             *  @param pointer The pointer to memory
+             *  @return The byte stored at the specified location (reference)
+             */
+            Byte& operator[](const Word& pointer);
         private:
             Byte RAM[MEMORY_SIZE] = {0,};
     };
