@@ -10,6 +10,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
                                src/Processor/ProcessorStatus.h
                                src/Processor/OpCodes.h
                                src/Memory/Memory.h src/Memory/Memory.cpp
+                               src/Instructions/Instruction.h
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC src)
