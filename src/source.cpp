@@ -9,5 +9,7 @@ int main()
 
     processor.start();
 
+    processor.printProcessorStatus();
+
     return 0;
 }

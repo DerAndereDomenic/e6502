@@ -25,7 +25,14 @@ namespace E6502
             /**
              *  @brief Starts exectuting the processor starting at the program counter until BRK is encountered.
              */
-            void start();
+            void 
+            start();
+
+            /**
+             *  @brief Print the current processor status
+             */
+            void
+            printProcessorStatus();
         private:
             Word PC;                                                /**< Program Counter */
             Byte SP;                                                /**< Stack Pointer */
