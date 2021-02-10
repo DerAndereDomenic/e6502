@@ -23,7 +23,7 @@ namespace E6502
          *  @param word The word to check
          */
         void 
-        checkCarry(const Word& word);
+        checkCarry(const int16_t& word);
 
         /**
          *  @brief Check if overflow was encountered.
@@ -33,7 +33,7 @@ namespace E6502
          *  @param word The word to check
          */
         void 
-        checkOverflow(const Word& word);
+        checkOverflow(const int16_t& word);
 
         /**
          *  @brief Check if the byte is negative.
