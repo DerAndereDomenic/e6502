@@ -14,7 +14,9 @@ namespace E6502
         ZERO_PAGE_Y_INDIRECT = 0b100,
         ZERO_PAGE_X = 0b101,
         ABSOLUTE_Y = 0b110,
-        ABSOLUTE_X = 0b111
+        ABSOLUTE_X = 0b111,
+
+        __NUM_ADDRESSING_MODES__
     };
 
     enum OpCodes
@@ -88,6 +90,7 @@ namespace E6502
         //STY (STore Y register)
         STY = 0x80,
 
+        __NUM_OPCODES__
     };
 
     /// An enum storing the opcodes of the 6502 instruction set
@@ -314,9 +317,9 @@ namespace E6502
         //STY (STore Y register)
         STY_Z = 0x84,
         STY_ZX = 0x94,
-        STY_A = 0x8C
+        STY_A = 0x8C,
 
-        
+        __NUM_OPCODESADRESSED__
     };
 }
 
