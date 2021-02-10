@@ -20,70 +20,73 @@ namespace E6502
     enum OpCodes
     {
         //ADC (ADd with Carry)
-        ADC = 0,
+        ADC = 0x61,
 
         //AND (bitwise AND with accumulator)
-        AND = 0,
+        AND = 0x21,
 
         //ASL (Arithmetic Shift Left)
-        ASL = 0,
+        ASL = 0x02,
 
         //BIT (test BITs)
-        BIT = 0,
+        BIT = 0x20,
 
         //CMP (CoMPare accumulator)
-        CMP = 0,
+        CMP = 0xC1,
 
         //CPX (ComPare X register)
-        CPX = 0,
+        CPX = 0xE0,
+
+        //CPY (ComPare Y register)
+        CPY = 0xE0,
 
         //DEC (DECrement memory)
-        DEC = 0,
+        DEC = 0xC0,
 
         //EOR (bitwise Exclusive OR)
-        EOR = 0,
+        EOR = 0x41,
 
         //INC (INCrement memory)
-        INC = 0,
+        INC = 0xE2,
 
         //JMP (JuMP)
-        JMP = 0,
+        JMP = 0x40,
 
         //JSR (Jump to SubRoutine)
-        JSR = 0,
+        JSR = 0x20,
 
         //LDA (LoaD Accumulator)
-        LDA = 0,
+        LDA = 0xA1,
 
         //LDX (LoaD X register)
-        LDX = 0,
+        LDX = 0xA2,
 
         //LDY (LoaD Y register)
-        LDY = 0,
+        LDY = 0xA0,
 
         //LSR (Logical Shit Right)
-        LSR = 0,
+        LSR = 0x41,
 
         //ORA (bitwise OR with Accumulator)
-        ORA = 0,
+        ORA = 0x01,
 
         //ROL (ROtate Left)
-        ROL = 0,
+        ROL = 0x22,
 
         //ROR (ROtate Right)
-        ROR = 0,
+        ROR = 0x62,
 
         //SBC (SuBtract with Carry)
-        SBC = 0,
+        SBC = 0xE1,
 
         //STA (STore Accumulator)
-        STA = 0,
+        STA = 0x81,
 
         //STX (STore X register)
-        STX = 0,
+        STX = 0x82,
 
         //STY (STore Y register)
-        STY = 0,
+        STY = 0x80,
 
     };
 
