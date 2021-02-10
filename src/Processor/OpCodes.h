@@ -17,6 +17,76 @@ namespace E6502
         ABSOLUTE_X = 0b111
     };
 
+    enum OpCodes
+    {
+        //ADC (ADd with Carry)
+        ADC = 0,
+
+        //AND (bitwise AND with accumulator)
+        AND = 0,
+
+        //ASL (Arithmetic Shift Left)
+        ASL = 0,
+
+        //BIT (test BITs)
+        BIT = 0,
+
+        //CMP (CoMPare accumulator)
+        CMP = 0,
+
+        //CPX (ComPare X register)
+        CPX = 0,
+
+        //DEC (DECrement memory)
+        DEC = 0,
+
+        //EOR (bitwise Exclusive OR)
+        EOR = 0,
+
+        //INC (INCrement memory)
+        INC = 0,
+
+        //JMP (JuMP)
+        JMP = 0,
+
+        //JSR (Jump to SubRoutine)
+        JSR = 0,
+
+        //LDA (LoaD Accumulator)
+        LDA = 0,
+
+        //LDX (LoaD X register)
+        LDX = 0,
+
+        //LDY (LoaD Y register)
+        LDY = 0,
+
+        //LSR (Logical Shit Right)
+        LSR = 0,
+
+        //ORA (bitwise OR with Accumulator)
+        ORA = 0,
+
+        //ROL (ROtate Left)
+        ROL = 0,
+
+        //ROR (ROtate Right)
+        ROR = 0,
+
+        //SBC (SuBtract with Carry)
+        SBC = 0,
+
+        //STA (STore Accumulator)
+        STA = 0,
+
+        //STX (STore X register)
+        STX = 0,
+
+        //STY (STore Y register)
+        STY = 0,
+
+    };
+
     /// An enum storing the opcodes of the 6502 instruction set
     /// For naming convention:
     /// XXX_AC    - Operation XXX Accumulator
