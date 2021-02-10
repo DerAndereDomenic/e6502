@@ -394,3 +394,93 @@ TEST(testINC, testINC)
     adressing = (adressMask & INC_AX)>>2;
     EXPECT_EQ(ABSOLUE_X_10, adressing);
 }
+
+TEST(testBIT, testBIT)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & BIT_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_00, adressing);
+
+    adressing = (adressMask & BIT_A)>>2;
+    EXPECT_EQ(ABSOLUTE_00, adressing);
+}
+
+TEST(testJMP, testJMP)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & JMP_I)>>2;
+    EXPECT_EQ(ABSOLUTE_00, adressing);
+
+    adressing = (adressMask & JMP_A)>>2;
+    EXPECT_EQ(ABSOLUTE_00, adressing);
+}
+
+TEST(testSTY, testSTY)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & STY_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_00, adressing);
+
+    adressing = (adressMask & STY_A)>>2;
+    EXPECT_EQ(ABSOLUTE_00, adressing);
+
+    adressing = (adressMask & STY_ZX)>>2;
+    EXPECT_EQ(ZERO_PAGE_X_00, adressing);
+}
+
+TEST(testLDY, testLDY)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & LDY_I)>>2;
+    EXPECT_EQ(IMMEDIATE_00, adressing);
+
+    adressing = (adressMask & LDY_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_00, adressing);
+
+    adressing = (adressMask & LDY_A)>>2;
+    EXPECT_EQ(ABSOLUTE_00, adressing);
+
+    adressing = (adressMask & LDY_ZX)>>2;
+    EXPECT_EQ(ZERO_PAGE_X_00, adressing);
+
+    adressing = (adressMask & LDY_AX)>>2;
+    EXPECT_EQ(ABSOLUTE_X_00, adressing);
+}
+
+TEST(testCPY, testCPY)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & CPY_I)>>2;
+    EXPECT_EQ(IMMEDIATE_00, adressing);
+
+    adressing = (adressMask & CPY_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_00, adressing);
+
+    adressing = (adressMask & CPY_A)>>2;
+    EXPECT_EQ(ABSOLUTE_00, adressing);
+}
+
+TEST(testCPX, testCPX)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & CPX_I)>>2;
+    EXPECT_EQ(IMMEDIATE_00, adressing);
+
+    adressing = (adressMask & CPX_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_00, adressing);
+
+    adressing = (adressMask & CPX_A)>>2;
+    EXPECT_EQ(ABSOLUTE_00, adressing);
+}
