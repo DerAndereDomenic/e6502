@@ -489,7 +489,7 @@ TEST(testCPX, testCPX)
 //                      SIMPLE OPCODES                          
 //--------------------------------------------------------------
 
-TEST(testADCsimple, testADCsimple)
+/*TEST(testADCsimple, testADCsimple)
 {
     Byte adressMask = ~0x1C;
     
@@ -602,15 +602,15 @@ TEST(testINCsimple, testINCsimple)
     EXPECT_EQ((adressMask & INC_AX), INC);
 }
 
-/*
-* JMP is an exception -> two opcodes
-TEST(testJMPsimple, testJMPsimple)
-{
-    Byte adressMask = ~0x1C;
-    
-    EXPECT_EQ((adressMask & JMP_I), JMP);
-    EXPECT_EQ((adressMask & JMP_A), JMP);
-}*/
+///
+/// JMP is an exception -> two opcodes
+///TEST(testJMPsimple, testJMPsimple)
+///{
+///    Byte adressMask = ~0x1C;
+///    
+///    EXPECT_EQ((adressMask & JMP_I), JMP);
+///    EXPECT_EQ((adressMask & JMP_A), JMP);
+///}
 
 TEST(testJSRsimple, testJSRsimple)
 {
@@ -745,4 +745,4 @@ TEST(testSTYsimple, testSTYsimple)
     EXPECT_EQ((adressMask & STY_Z), STY);
     EXPECT_EQ((adressMask & STY_ZX), STY);
     EXPECT_EQ((adressMask & STY_A), STY);
-}
+}*/

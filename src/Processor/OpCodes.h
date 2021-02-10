@@ -33,7 +33,7 @@ namespace E6502
         ABSOLUTE_X_00 = 0b111,
     };
 
-    enum OpCodes
+    /*enum OpCodes
     {
         //ADC (ADd with Carry)
         ADC = 0x61,
@@ -104,7 +104,7 @@ namespace E6502
         //STY (STore Y register)
         STY = 0x80,
 
-    };
+    };*/
 
     /// An enum storing the opcodes of the 6502 instruction set
     /// For naming convention:
