@@ -22,8 +22,8 @@ namespace E6502
         ZERO_PAGE_10 = 0b001,
         ACCUMULATOR_10 = 0b010,
         ABSOLUTE_10 = 0b011,
-        ZERO_PAGE_X = 0b101,
-        ABSOLUE_X = 0b111,
+        ZERO_PAGE_X_10 = 0b101,
+        ABSOLUE_X_10 = 0b111,
     };
 
     enum OpCodes

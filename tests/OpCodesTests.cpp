@@ -237,3 +237,160 @@ TEST(testSBC, testSBC)
     adressing = (adressMask & SBC_IY)>>2;
     EXPECT_EQ(ZERO_PAGE_Y_INDIRECT_01, adressing);
 }
+
+TEST(testASL, testASL)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & ASL_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_10, adressing);
+
+    adressing = (adressMask & ASL_AC)>>2;
+    EXPECT_EQ(ACCUMULATOR_10, adressing);
+
+    adressing = (adressMask & ASL_A)>>2;
+    EXPECT_EQ(ABSOLUTE_10, adressing);
+
+    adressing = (adressMask & ASL_ZX)>>2;
+    EXPECT_EQ(ZERO_PAGE_X_10, adressing);
+
+    adressing = (adressMask & ASL_AX)>>2;
+    EXPECT_EQ(ABSOLUE_X_10, adressing);
+}
+
+TEST(testROL, testROL)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & ROL_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_10, adressing);
+
+    adressing = (adressMask & ROL_AC)>>2;
+    EXPECT_EQ(ACCUMULATOR_10, adressing);
+
+    adressing = (adressMask & ROL_A)>>2;
+    EXPECT_EQ(ABSOLUTE_10, adressing);
+
+    adressing = (adressMask & ROL_ZX)>>2;
+    EXPECT_EQ(ZERO_PAGE_X_10, adressing);
+
+    adressing = (adressMask & ROL_AX)>>2;
+    EXPECT_EQ(ABSOLUE_X_10, adressing);
+}
+
+TEST(testLSR, testLSR)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & LSR_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_10, adressing);
+
+    adressing = (adressMask & LSR_AC)>>2;
+    EXPECT_EQ(ACCUMULATOR_10, adressing);
+
+    adressing = (adressMask & LSR_A)>>2;
+    EXPECT_EQ(ABSOLUTE_10, adressing);
+
+    adressing = (adressMask & LSR_ZX)>>2;
+    EXPECT_EQ(ZERO_PAGE_X_10, adressing);
+
+    adressing = (adressMask & LSR_AX)>>2;
+    EXPECT_EQ(ABSOLUE_X_10, adressing);
+}
+
+TEST(testROR, testROR)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & ROR_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_10, adressing);
+
+    adressing = (adressMask & ROR_AC)>>2;
+    EXPECT_EQ(ACCUMULATOR_10, adressing);
+
+    adressing = (adressMask & ROR_A)>>2;
+    EXPECT_EQ(ABSOLUTE_10, adressing);
+
+    adressing = (adressMask & ROR_ZX)>>2;
+    EXPECT_EQ(ZERO_PAGE_X_10, adressing);
+
+    adressing = (adressMask & ROR_AX)>>2;
+    EXPECT_EQ(ABSOLUE_X_10, adressing);
+}
+
+TEST(testSTX, testSTX)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & STX_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_10, adressing);
+
+    adressing = (adressMask & STX_A)>>2;
+    EXPECT_EQ(ABSOLUTE_10, adressing);
+
+    adressing = (adressMask & STX_ZY)>>2;
+    EXPECT_EQ(ZERO_PAGE_X_10, adressing);
+
+}
+
+TEST(testLDX, testLDX)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & LDX_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_10, adressing);
+
+    adressing = (adressMask & LDX_I)>>2;
+    EXPECT_EQ(IMMEDIATE_10, adressing);
+
+    adressing = (adressMask & LDX_A)>>2;
+    EXPECT_EQ(ABSOLUTE_10, adressing);
+
+    adressing = (adressMask & LDX_ZY)>>2;
+    EXPECT_EQ(ZERO_PAGE_X_10, adressing);
+
+    adressing = (adressMask & LDX_AY)>>2;
+    EXPECT_EQ(ABSOLUE_X_10, adressing);
+}
+
+TEST(testDEC, testDEC)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & DEC_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_10, adressing);
+
+    adressing = (adressMask & DEC_A)>>2;
+    EXPECT_EQ(ABSOLUTE_10, adressing);
+
+    adressing = (adressMask & DEC_ZX)>>2;
+    EXPECT_EQ(ZERO_PAGE_X_10, adressing);
+
+    adressing = (adressMask & DEC_AX)>>2;
+    EXPECT_EQ(ABSOLUE_X_10, adressing);
+}
+
+TEST(testINC, testINC)
+{
+    Byte adressMask = 0x1C;
+    int adressing;
+
+    adressing = (adressMask & INC_Z)>>2;
+    EXPECT_EQ(ZERO_PAGE_10, adressing);
+
+    adressing = (adressMask & INC_A)>>2;
+    EXPECT_EQ(ABSOLUTE_10, adressing);
+
+    adressing = (adressMask & INC_ZX)>>2;
+    EXPECT_EQ(ZERO_PAGE_X_10, adressing);
+
+    adressing = (adressMask & INC_AX)>>2;
+    EXPECT_EQ(ABSOLUE_X_10, adressing);
+}
