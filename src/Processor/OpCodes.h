@@ -159,6 +159,11 @@ namespace E6502
         CPX_Z = 0xE4,
         CPX_A = 0xEC,
 
+        //CPY (ComPare Y register)
+        CPY_I = 0xC0,
+        CPY_Z = 0xC4,
+        CTY_A = 0xCC,
+
         //DEC (DECrement memory)
         DEC_Z = 0xC6,
         DEC_ZX = 0xD6,
