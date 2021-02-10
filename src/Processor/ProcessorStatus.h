@@ -26,14 +26,12 @@ namespace E6502
         checkCarry(const int16_t& word);
 
         /**
-         *  @brief Check if overflow was encountered.
-         *  The calculation should be converted to a Word (16 bit).
-         *  This way we can check if the input is out of the range [-127,128].
-         *  Sets the overflow bit 1 if overflow was encountered, 0 else
-         *  @param word The word to check
+         *  @brief Check if overflow was encountered for inp1+inp2.
+         *  @param inp1 The first input
+         *  @param inp2 The second input
          */
         void 
-        checkOverflow(const int16_t& word);
+        checkOverflow(const Byte& inp1, const Byte& inp2);
 
         /**
          *  @brief Check if the byte is negative.
