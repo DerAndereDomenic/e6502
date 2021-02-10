@@ -10,26 +10,26 @@ Processor::Processor(Memory& memory)
 {
     reset();
 
-    ids.insert(std::make_pair(CLC, 0));
-    instructions[0] = new E6502_Instructions::CLC();
+    ids.insert(std::make_pair(CLC, current_id));
+    instructions[current_id++] = new E6502_Instructions::CLC();
 
-    ids.insert(std::make_pair(SEC, 1));
-    instructions[1] = new E6502_Instructions::SEC();
+    ids.insert(std::make_pair(SEC, current_id));
+    instructions[current_id++] = new E6502_Instructions::SEC();
 
-    ids.insert(std::make_pair(CLI, 2));
-    instructions[2] = new E6502_Instructions::CLI();
+    ids.insert(std::make_pair(CLI, current_id));
+    instructions[current_id++] = new E6502_Instructions::CLI();
 
-    ids.insert(std::make_pair(SEI, 3));
-    instructions[3] = new E6502_Instructions::SEI();
+    ids.insert(std::make_pair(SEI, current_id));
+    instructions[current_id++] = new E6502_Instructions::SEI();
 
-    ids.insert(std::make_pair(CLV, 4));
-    instructions[4] = new E6502_Instructions::CLV();
+    ids.insert(std::make_pair(CLV, current_id));
+    instructions[current_id++] = new E6502_Instructions::CLV();
 
-    ids.insert(std::make_pair(CLD, 5));
-    instructions[5] = new E6502_Instructions::CLD();
+    ids.insert(std::make_pair(CLD, current_id));
+    instructions[current_id++] = new E6502_Instructions::CLD();
 
-    ids.insert(std::make_pair(SED, 6));
-    instructions[6] = new E6502_Instructions::SED();
+    ids.insert(std::make_pair(SED, current_id));
+    instructions[current_id++] = new E6502_Instructions::SED();
 }
 
 Processor::~Processor()
@@ -42,6 +42,7 @@ Processor::~Processor()
         }
     }
     ids.clear();
+    current_id = 0;
 }
 
 void

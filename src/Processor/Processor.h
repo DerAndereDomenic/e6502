@@ -45,6 +45,7 @@ namespace E6502
 
             Instruction* instructions[PAGE_SIZE] = {nullptr,};      /**< Array of alle instructions */   
 
+            uint32_t current_id = 0;
             std::unordered_map<OpCodesAdressed, uint32_t> ids;
     };
 }
