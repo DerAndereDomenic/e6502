@@ -11,5 +11,5 @@ CLI::operator()(Word& PC,
                 ProcessorStatus& processor_status,
                 Memory& memory)
 {
-
+    processor_status.I = 0;
 } 

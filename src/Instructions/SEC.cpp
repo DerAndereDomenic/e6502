@@ -11,5 +11,5 @@ SEC::operator()(Word& PC,
                 ProcessorStatus& processor_status,
                 Memory& memory)
 {
-
+    processor_status.C = 1;
 } 

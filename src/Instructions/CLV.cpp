@@ -11,5 +11,5 @@ CLV::operator()(Word& PC,
                 ProcessorStatus& processor_status,
                 Memory& memory)
 {
-
+    processor_status.V = 0;
 } 
