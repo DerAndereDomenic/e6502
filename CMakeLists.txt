@@ -11,6 +11,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
                                src/Processor/OpCodes.h
                                src/Memory/Memory.h src/Memory/Memory.cpp
                                src/Instructions/Instruction.h
+                               src/Instructions/Instructions.h
                                src/Instructions/CLC.h src/Instructions/CLC.cpp
                                src/Instructions/SEC.h src/Instructions/SEC.cpp
                                src/Instructions/CLI.h src/Instructions/CLI.cpp
