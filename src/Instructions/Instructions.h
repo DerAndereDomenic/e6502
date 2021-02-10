@@ -8,5 +8,6 @@
 #include <Instructions/CLV.h>
 #include <Instructions/CLD.h>
 #include <Instructions/SED.h>
+#include <Instructions/LDA.h>
 
 #endif
