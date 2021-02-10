@@ -74,3 +74,97 @@ TEST(negativeFlagUnderflow, negativeFlagUnderflow)
 
     EXPECT_EQ(status.N,0);
 }
+
+TEST(carryFlag2Postive, carryFalg2Positive)
+{
+    ProcessorStatus status;
+    Byte b1 = 10;
+    Byte b2 = 20;
+
+    Word result = static_cast<Word>(b1) + static_cast<Word>(b2);
+    status.checkCarry(result);
+
+    EXPECT_EQ(status.C,0);
+}
+
+TEST(carryFlag2Negative, carryFalg2Negative)
+{
+    ProcessorStatus status;
+    Byte b1 = -10;
+    Byte b2 = -20;
+
+    //First convert to signed byte and then extend to 16 bits
+    int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
+    status.checkCarry(result);
+
+    EXPECT_EQ(status.C,1);
+}
+
+TEST(carryFlagPosNeg, carryFlagPosNeg)
+{
+    ProcessorStatus status;
+    Byte b1 = 10;
+    Byte b2 = -20;
+
+    //First convert to signed byte and then extend to 16 bits
+    int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
+    status.checkCarry(result);
+
+    EXPECT_EQ(status.C,0);
+}
+
+TEST(carryFlagNegPos, carryFlagNegPos)
+{
+    ProcessorStatus status;
+    Byte b1 = -10;
+    Byte b2 = 20;
+
+    //First convert to signed byte and then extend to 16 bits
+    int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
+    status.checkCarry(result);
+
+    EXPECT_EQ(status.C,1);
+}
+
+TEST(carryFlagOneOne, carryFlagOneOne)
+{
+    ProcessorStatus status;
+    Byte b1 = 1;
+    Byte b2 = 1;
+
+    int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
+    status.checkCarry(result);
+    EXPECT_EQ(status.C, 0);
+}
+
+TEST(carryFlagOneNegOne, carryFlagOneNegOne)
+{
+    ProcessorStatus status;
+    Byte b1 = 1;
+    Byte b2 = -1;
+
+    int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
+    status.checkCarry(result);
+    EXPECT_EQ(status.C, 1);
+}
+
+TEST(carryFlag127One, carryFlag127One)
+{
+    ProcessorStatus status;
+    Byte b1 = 127;
+    Byte b2 = 1;
+
+    int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
+    status.checkCarry(result);
+    EXPECT_EQ(status.C, 0);
+}
+
+TEST(carryFlagNeg127NegOne, carryFlagNeg127NegOne)
+{
+    ProcessorStatus status;
+    Byte b1 = -127;
+    Byte b2 = -1;
+    int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
+    status.checkCarry(result);
+    EXPECT_EQ(status.C, 1);
+}
