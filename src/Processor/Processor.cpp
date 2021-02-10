@@ -1,6 +1,7 @@
 #include <Processor/Processor.h>
 #include <assert.h>
 #include <iostream>
+#include <Instructions/Instructions.h>
 
 using namespace E6502;
 
@@ -8,6 +9,14 @@ Processor::Processor(Memory& memory)
     :memory(memory)
 {
     reset();
+
+    instructions[CLC] = new E6502_Instructions::CLC();
+    instructions[SEC] = new E6502_Instructions::SEC();
+    instructions[CLI] = new E6502_Instructions::CLI();
+    instructions[SEI] = new E6502_Instructions::SEI();
+    instructions[CLV] = new E6502_Instructions::CLV();
+    instructions[CLD] = new E6502_Instructions::CLD();
+    instructions[SED] = new E6502_Instructions::SED();
 }
 
 Processor::~Processor()
