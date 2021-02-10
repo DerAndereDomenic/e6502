@@ -70,5 +70,5 @@ Processor::printProcessorStatus()
         << "|" << static_cast<int32_t>(processor_status.D)
         << "|" << static_cast<int32_t>(processor_status.B)
         << "|" << static_cast<int32_t>(processor_status.V)
-        << "|" << static_cast<int32_t>(processor_status.N) << "|" << std::endl;
+        << "|" << static_cast<int32_t>(processor_status.N) << "|" << std::dec << std::endl;
 }
