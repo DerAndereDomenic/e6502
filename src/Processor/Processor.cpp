@@ -54,9 +54,11 @@ Processor::start()
         //2) Increment PC
         ++PC;
         //3) execute op
-        Instruction* op = instructions[opcode];
+        AddressingModes addressing = static_cast<AddressingModes>((ADDRESS_MASK & opcode) >> 2);
+        OpCodes opcode_unadressed = static_cast<OpCodes>(opcode & ~ADDRESS_MASK);
+        Instruction* op = instructions[opcode_unadressed];
         assert(op != nullptr);
-        op->operator()(PC, SP, A, X, Y, processor_status, memory); 
+        op->operator()(PC, SP, A, X, Y, processor_status, memory, addressing); 
     }
 }
 
