@@ -7,7 +7,7 @@ namespace E6502
 {
     enum AddressingModes
     {
-        //Opcodes c=01
+        //Opcodes cc=01
         ZERO_PAGE_X_INDIRECT_01 = 0b000,
         ZERO_PAGE_01 = 0b001,
         IMMEDIATE_01 = 0b010,
@@ -16,6 +16,14 @@ namespace E6502
         ZERO_PAGE_X_01 = 0b101,
         ABSOLUTE_Y_01 = 0b110,
         ABSOLUTE_X_01 = 0b111,
+
+        //Opcodes cc=10
+        IMMEDIATE_10 = 0b000,
+        ZERO_PAGE_10 = 0b001,
+        ACCUMULATOR_10 = 0b010,
+        ABSOLUTE_10 = 0b011,
+        ZERO_PAGE_X = 0b101,
+        ABSOLUE_X = 0b111,
     };
 
     enum OpCodes
