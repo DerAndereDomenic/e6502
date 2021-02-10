@@ -4,6 +4,7 @@
 #include <Core/Defines.h>
 #include <Processor/ProcessorStatus.h>
 #include <Memory/Memory.h>
+#include <Processor/OpCodes.h>
 
 namespace E6502
 {
@@ -24,6 +25,7 @@ namespace E6502
              *  @param Y The Y register
              *  @param processor_status The processor status
              *  @param memory The memory
+             *  @param address_mode The addressing mode
              */
             virtual void operator()(Word& PC,                            
                                     Byte& SP,                         
@@ -31,7 +33,8 @@ namespace E6502
                                     Byte& X,                             
                                     Byte& Y,                             
                                     ProcessorStatus& processor_status,
-                                    Memory& memory) = 0;  
+                                    Memory& memory,
+                                    AddressingModes& address_mode) = 0;  
     };
 }
 

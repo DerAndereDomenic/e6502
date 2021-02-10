@@ -30,7 +30,8 @@ namespace E6502_Instructions
                             Byte& X,                             
                             Byte& Y,                             
                             ProcessorStatus& processor_status,
-                            Memory& memory) override;  
+                            Memory& memory,
+                            AddressingModes& address_mode) override;  
     };
 }
 

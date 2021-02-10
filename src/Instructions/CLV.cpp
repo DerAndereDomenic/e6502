@@ -9,7 +9,8 @@ CLV::operator()(Word& PC,
                 Byte& X,                             
                 Byte& Y,                             
                 ProcessorStatus& processor_status,
-                Memory& memory)
+                Memory& memory,
+                AddressingModes& address_mode)
 {
     processor_status.V = 0;
 } 
