@@ -41,20 +41,23 @@ Processor::reset()
 void
 Processor::start()
 {
-    //1) Fetch op
-    Byte opcode = memory[PC];
-    //Check if BRK
-    if(opcode == 0)
+    while(true)
     {
-        std::cout << "BRK encountered! Stop execution..." << std::endl;
-        return;
+        //1) Fetch op
+        Byte opcode = memory[PC];
+        //Check if BRK
+        if(opcode == 0)
+        {
+            std::cout << "BRK encountered! Stop execution..." << std::endl;
+            return;
+        }
+        //2) Increment PC
+        ++PC;
+        //3) execute op
+        Instruction* op = instructions[opcode];
+        assert(op != nullptr);
+        op->operator()(PC, SP, A, X, Y, processor_status, memory); 
     }
-    //2) Increment PC
-    ++PC;
-    //3) execute op
-    Instruction* op = instructions[opcode];
-    assert(op != nullptr);
-    op->operator()(PC, SP, A, X, Y, processor_status, memory); 
 }
 
 void
