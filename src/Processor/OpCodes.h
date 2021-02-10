@@ -28,7 +28,7 @@ namespace E6502
     /// XXX_AY - Operation XXX Absolute, Y
     /// XXX_IX - Operation XXX Indirect, X
     /// XXX_IY - Operation XXX Indirect, Y
-    enum OpCodes
+    enum OpCodesAdressed
     {
         //ADC (ADd with Carry)
         ADC_I = 0x69,
