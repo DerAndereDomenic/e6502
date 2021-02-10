@@ -168,3 +168,91 @@ TEST(carryFlagNeg127NegOne, carryFlagNeg127NegOne)
     status.checkCarry(result);
     EXPECT_EQ(status.C, 1);
 }
+
+TEST(overflowFlagOneOne, overflowFlagOneOne)
+{
+    ProcessorStatus status;
+    Byte b1 = 1;
+    Byte b2 = 1;
+    status.checkOverflow(b1,b2);
+    EXPECT_EQ(status.V, 0);
+}
+
+TEST(overflowFlagOneNegOne, overflowFlagOneNegOne)
+{
+    ProcessorStatus status;
+    Byte b1 = 1;
+    Byte b2 = -1;
+    status.checkOverflow(b1,b2);
+    EXPECT_EQ(status.V, 0);
+}
+
+TEST(overflowFlag127One, overflowFlag127One)
+{
+    ProcessorStatus status;
+    Byte b1 = 127;
+    Byte b2 = 1;
+    status.checkOverflow(b1,b2);
+    EXPECT_EQ(status.V, 1);
+}
+
+TEST(overflowFlagNeg128NegOne, overflowFlagNeg128NegOne)
+{
+    ProcessorStatus status;
+    Byte b1 = -128;
+    Byte b2 = -1;
+    status.checkOverflow(b1,b2);
+    EXPECT_EQ(status.V, 1);
+}
+
+TEST(overflowFlagZeroNegOne, overflowFlagZeroNegOne)
+{
+    ProcessorStatus status;
+    Byte b1 = 0;
+    Byte b2 = -1;
+    status.checkOverflow(b1,b2);
+    EXPECT_EQ(status.V, 0);
+}
+
+TEST(overflowFlag2Postive, overflowFlag2Postive)
+{
+    ProcessorStatus status;
+    Byte b1 = 10;
+    Byte b2 = 20;
+
+    status.checkOverflow(b1,b2);
+
+    EXPECT_EQ(status.V,0);
+}
+
+TEST(overflowFlag2Negative, overflowFlag2Negative)
+{
+    ProcessorStatus status;
+    Byte b1 = -10;
+    Byte b2 = -20;
+
+    status.checkOverflow(b1,b2);
+
+    EXPECT_EQ(status.V,0);
+}
+
+TEST(overflowFlagPosNeg, overflowFlagPosNeg)
+{
+    ProcessorStatus status;
+    Byte b1 = 10;
+    Byte b2 = -20;
+    status.checkOverflow(b1,b2);
+
+    EXPECT_EQ(status.V,0);
+}
+
+TEST(overflowFlagNegPos, overflowFlagNegPos)
+{
+    ProcessorStatus status;
+    Byte b1 = -10;
+    Byte b2 = 20;
+
+    status.checkOverflow(b1,b2);
+
+    EXPECT_EQ(status.V,0);
+}
