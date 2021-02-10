@@ -22,15 +22,16 @@ LDA::operator()(Word& PC,
         break;
         case ZERO_PAGE_01:
         {
-            std::cout << "LDA: Zero Page" << std::endl;
+            Byte address = memory[PC];
+            Byte data = memory[address];
+            A = data;
+            ++PC;
         }
         break;
         case IMMEDIATE_01:
         {
             Byte data = memory[PC];
             A = data;
-            processor_status.checkZero(data);
-            processor_status.checkNegative(data);
             ++PC;
         }
         break;
@@ -60,4 +61,6 @@ LDA::operator()(Word& PC,
         }
         break;
     }
+    processor_status.checkZero(A);
+    processor_status.checkNegative(A);
 }
