@@ -24,6 +24,13 @@ namespace E6502
         ABSOLUTE_10 = 0b011,
         ZERO_PAGE_X_10 = 0b101,
         ABSOLUE_X_10 = 0b111,
+
+        //Opcodes cc=00
+        IMMEDIATE_00 = 0b000,
+        ZERO_PAGE_00 = 0b001,
+        ABSOLUTE_00 = 0b011,
+        ZERO_PAGE_X_00 = 0b101,
+        ABSOLUTE_X_00 = 0b111,
     };
 
     enum OpCodes
