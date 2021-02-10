@@ -6,6 +6,7 @@
 #include <Processor/OpCodes.h>
 #include <Memory/Memory.h>
 #include <Instructions/Instruction.h>
+#include <unordered_map>
 
 namespace E6502
 {
@@ -43,6 +44,8 @@ namespace E6502
             Memory memory;                                          /**< The memory the processor is working with */
 
             Instruction* instructions[PAGE_SIZE] = {nullptr,};      /**< Array of alle instructions */   
+
+            std::unordered_map<OpCodesAdressed, uint32_t> ids;
     };
 }
 

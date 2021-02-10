@@ -10,13 +10,26 @@ Processor::Processor(Memory& memory)
 {
     reset();
 
-    instructions[CLC] = new E6502_Instructions::CLC();
-    instructions[SEC] = new E6502_Instructions::SEC();
-    instructions[CLI] = new E6502_Instructions::CLI();
-    instructions[SEI] = new E6502_Instructions::SEI();
-    instructions[CLV] = new E6502_Instructions::CLV();
-    instructions[CLD] = new E6502_Instructions::CLD();
-    instructions[SED] = new E6502_Instructions::SED();
+    ids.insert(std::make_pair(CLC, 0));
+    instructions[0] = new E6502_Instructions::CLC();
+
+    ids.insert(std::make_pair(SEC, 1));
+    instructions[1] = new E6502_Instructions::SEC();
+
+    ids.insert(std::make_pair(CLI, 2));
+    instructions[2] = new E6502_Instructions::CLI();
+
+    ids.insert(std::make_pair(SEI, 3));
+    instructions[3] = new E6502_Instructions::SEI();
+
+    ids.insert(std::make_pair(CLV, 4));
+    instructions[4] = new E6502_Instructions::CLV();
+
+    ids.insert(std::make_pair(CLD, 5));
+    instructions[5] = new E6502_Instructions::CLD();
+
+    ids.insert(std::make_pair(SED, 6));
+    instructions[6] = new E6502_Instructions::SED();
 }
 
 Processor::~Processor()
@@ -28,6 +41,7 @@ Processor::~Processor()
             delete instructions[i];
         }
     }
+    ids.clear();
 }
 
 void
@@ -55,8 +69,8 @@ Processor::start()
         ++PC;
         //3) execute op
         AddressingModes addressing = static_cast<AddressingModes>((ADDRESS_MASK & opcode) >> 2);
-        //OpCodes opcode_unadressed = static_cast<OpCodes>(opcode & ~ADDRESS_MASK);
-        Instruction* op = instructions[opcode];
+        uint32_t id = ids.find(static_cast<OpCodesAdressed>(opcode))->second;
+        Instruction* op = instructions[id];
         assert(op != nullptr);
         op->operator()(PC, SP, A, X, Y, processor_status, memory, addressing); 
     }
