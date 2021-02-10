@@ -11,14 +11,7 @@ ProcessorStatus::checkZero(const Byte& byte)
 void 
 ProcessorStatus::checkCarry(const int16_t& word)
 {
-    if(word >= 0 && word <= 255)
-    {
-        C = 0;
-    }
-    else
-    {
-        C = 1;
-    }
+    C = (word & 0x100) >> 8;
 }
 
 void 
