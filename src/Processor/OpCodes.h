@@ -5,6 +5,18 @@
 
 namespace E6502
 {
+    enum AddressingModes
+    {
+        ZERO_PAGE_X_INDIRECT = 0b000,
+        ZERO_PAGE = 0b001,
+        IMMEDIATE = 0b010,
+        ABSOLUTE = 0b011,
+        ZERO_PAGE_Y_INDIRECT = 0b100,
+        ZERO_PAGE_X = 0b101,
+        ABSOLUTE_Y = 0b110,
+        ABSOLUTE_X = 0b111
+    };
+
     /// An enum storing the opcodes of the 6502 instruction set
     /// For naming convention:
     /// XXX_AC    - Operation XXX Accumulator
