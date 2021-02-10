@@ -7,7 +7,7 @@ namespace E6502
 {
     /// An enum storing the opcodes of the 6502 instruction set
     /// For naming convention:
-    /// XXX    - Operation XXX Accumulator
+    /// XXX_AC    - Operation XXX Accumulator
     /// XXX_I  - Operation XXX Intermediate
     /// XXX_Z  - Operation XXX from Zero page
     /// XXX_ZX - Operation XXX from Zero page, X
@@ -39,7 +39,7 @@ namespace E6502
         AND_IY = 0x31,
 
         //ASL (Arithmetic Shift Left)
-        ASL = 0x0A,
+        ASL_AC = 0x0A,
         ASL_Z = 0x06,
         ASL_ZX = 0x16,
         ASL_A = 0x0E,
@@ -140,7 +140,7 @@ namespace E6502
         LDY_AX = 0xBC,
 
         //LSR (Logical Shit Right)
-        LSR = 0x4A,
+        LSR_AC = 0x4A,
         LSR_Z = 0x46,
         LSR_ZX = 0x56,
         LSR_A = 0x4E,
@@ -170,14 +170,14 @@ namespace E6502
         INY = 0xC8,
 
         //ROL (ROtate Left)
-        ROL = 0x2A,
+        ROL_AC = 0x2A,
         ROL_Z = 0x26,
         ROL_ZX = 0x36,
         ROL_A = 0x2E,
         ROL_AX = 0x3E,
 
         //ROR (ROtate Right)
-        ROR = 0x6A,
+        ROR_AC = 0x6A,
         ROR_Z = 0x66,
         ROR_ZX = 0x76,
         ROR_A = 0x6E,
