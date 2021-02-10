@@ -11,6 +11,13 @@ add_executable(${PROJECT_NAME} src/source.cpp
                                src/Processor/OpCodes.h
                                src/Memory/Memory.h src/Memory/Memory.cpp
                                src/Instructions/Instruction.h
+                               src/Instructions/CLC.h src/Instructions/CLC.cpp
+                               src/Instructions/SEC.h src/Instructions/SEC.cpp
+                               src/Instructions/CLI.h src/Instructions/CLI.cpp
+                               src/Instructions/SEI.h src/Instructions/SEI.cpp
+                               src/Instructions/CLV.h src/Instructions/CLV.cpp
+                               src/Instructions/CLD.h src/Instructions/CLD.cpp
+                               src/Instructions/SED.h src/Instructions/SED.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC src)
