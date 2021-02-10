@@ -10,8 +10,8 @@ namespace E6502
     #define PAGE_SIZE 0xFF      /**< The size of a page */
     #define ADRESS_MASK 0x1C    /**< The address mask */
 
-    using Byte = int8_t;    //Byte
-    using Word = int16_t;   //Word = 2 Bytes
+    using Byte = uint8_t;    //Byte
+    using Word = uint16_t;   //Word = 2 Bytes
 }
 
 #endif
