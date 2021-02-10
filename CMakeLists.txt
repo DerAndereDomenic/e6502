@@ -19,6 +19,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
                                src/Instructions/CLV.h src/Instructions/CLV.cpp
                                src/Instructions/CLD.h src/Instructions/CLD.cpp
                                src/Instructions/SED.h src/Instructions/SED.cpp
+                               src/Instructions/LDA.h src/Instructions/LDA.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC src)
