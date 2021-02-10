@@ -19,3 +19,4 @@ macro(package_add_test TESTNAME)
 endmacro()
 
 package_add_test(OpCodesTests OpCodesTests.cpp)
+package_add_test(BitCheckTests BitCheckTests.cpp ../src/Processor/ProcessorStatus.cpp)
