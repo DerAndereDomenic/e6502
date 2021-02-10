@@ -54,10 +54,10 @@ namespace E6502
         CPX = 0xE0,
 
         //CPY (ComPare Y register)
-        CPY = 0xE0,
+        CPY = 0xC0,
 
         //DEC (DECrement memory)
-        DEC = 0xC0,
+        DEC = 0xC2,
 
         //EOR (bitwise Exclusive OR)
         EOR = 0x41,
@@ -81,7 +81,7 @@ namespace E6502
         LDY = 0xA0,
 
         //LSR (Logical Shit Right)
-        LSR = 0x41,
+        LSR = 0x42,
 
         //ORA (bitwise OR with Accumulator)
         ORA = 0x01,
@@ -219,7 +219,7 @@ namespace E6502
         JMP_I = 0x6C,
 
         //JSR (Jump to SubRoutine)
-        JDR_A = 0x20,
+        JSR_A = 0x20,
 
         //LDA (LoaD Accumulator)
         LDA_I = 0xA9,
