@@ -14,3 +14,12 @@ add_executable(${PROJECT_NAME} src/source.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC src)
+
+option(E6502_BUILD_TESTS "Build the E6502 Tests" ON)
+
+if(E6502_BUILD_TESTS)
+    add_subdirectory(external/googletest)
+    enable_testing()
+    include(GoogleTest)
+    add_subdirectory(tests)
+endif()
