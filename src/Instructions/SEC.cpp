@@ -1,6 +1,6 @@
 #include <Instructions/SEC.h>
 
-using namespace E6502;
+using namespace E6502_Instructions;
 
 void 
 SEC::operator()(Word& PC,                            

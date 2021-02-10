@@ -3,8 +3,9 @@
 
 #include <Instructions/Instruction.h>
 
-namespace E6502
+namespace E6502_Instructions
 {
+    using namespace E6502;
     /**
      *  @brief Set Carry
      */

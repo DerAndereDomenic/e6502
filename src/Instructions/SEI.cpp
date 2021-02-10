@@ -1,6 +1,6 @@
 #include <Instructions/SEI.h>
 
-using namespace E6502;
+using namespace E6502_Instructions;
 
 void 
 SEI::operator()(Word& PC,                            

@@ -1,6 +1,6 @@
 #include <Instructions/CLC.h>
 
-using namespace E6502;
+using namespace E6502_Instructions;
 
 void 
 CLC::operator()(Word& PC,                            

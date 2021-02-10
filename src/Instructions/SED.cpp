@@ -1,6 +1,6 @@
 #include <Instructions/SED.h>
 
-using namespace E6502;
+using namespace E6502_Instructions;
 
 void 
 SED::operator()(Word& PC,                            

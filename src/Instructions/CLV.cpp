@@ -1,6 +1,6 @@
 #include <Instructions/CLV.h>
 
-using namespace E6502;
+using namespace E6502_Instructions;
 
 void 
 CLV::operator()(Word& PC,                            

@@ -1,6 +1,6 @@
 #include <Instructions/CLD.h>
 
-using namespace E6502;
+using namespace E6502_Instructions;
 
 void 
 CLD::operator()(Word& PC,                            
