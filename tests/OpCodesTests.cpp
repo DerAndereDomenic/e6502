@@ -484,3 +484,265 @@ TEST(testCPX, testCPX)
     adressing = (adressMask & CPX_A)>>2;
     EXPECT_EQ(ABSOLUTE_00, adressing);
 }
+
+//--------------------------------------------------------------
+//                      SIMPLE OPCODES                          
+//--------------------------------------------------------------
+
+TEST(testADCsimple, testADCsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & ADC_I), ADC);
+    EXPECT_EQ((adressMask & ADC_Z), ADC);
+    EXPECT_EQ((adressMask & ADC_ZX), ADC);
+    EXPECT_EQ((adressMask & ADC_A), ADC);
+    EXPECT_EQ((adressMask & ADC_AX), ADC);
+    EXPECT_EQ((adressMask & ADC_AY), ADC);
+    EXPECT_EQ((adressMask & ADC_IX), ADC);
+    EXPECT_EQ((adressMask & ADC_IY), ADC);
+}
+
+TEST(testANDsimple, testANDsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & AND_I), AND);
+    EXPECT_EQ((adressMask & AND_Z), AND);
+    EXPECT_EQ((adressMask & AND_ZX), AND);
+    EXPECT_EQ((adressMask & AND_A), AND);
+    EXPECT_EQ((adressMask & AND_AX), AND);
+    EXPECT_EQ((adressMask & AND_AY), AND);
+    EXPECT_EQ((adressMask & AND_IX), AND);
+    EXPECT_EQ((adressMask & AND_IY), AND);
+}
+
+TEST(testASLsimple, testASLsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & ASL_Z), ASL);
+    EXPECT_EQ((adressMask & ASL_ZX), ASL);
+    EXPECT_EQ((adressMask & ASL_A), ASL);
+    EXPECT_EQ((adressMask & ASL_AX), ASL);
+    EXPECT_EQ((adressMask & ASL_AC), ASL);
+}
+
+TEST(testBITsimple, testBITsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & BIT_Z), BIT);
+    EXPECT_EQ((adressMask & BIT_A), BIT);
+}
+
+TEST(testCMPsimple, testCMPsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & CMP_I), CMP);
+    EXPECT_EQ((adressMask & CMP_Z), CMP);
+    EXPECT_EQ((adressMask & CMP_ZX), CMP);
+    EXPECT_EQ((adressMask & CMP_A), CMP);
+    EXPECT_EQ((adressMask & CMP_AX), CMP);
+    EXPECT_EQ((adressMask & CMP_AY), CMP);
+    EXPECT_EQ((adressMask & CMP_IX), CMP);
+    EXPECT_EQ((adressMask & CMP_IY), CMP);
+}
+
+TEST(testCPXsimple, testCPXsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & CPX_I), CPX);
+    EXPECT_EQ((adressMask & CPX_Z), CPX);
+    EXPECT_EQ((adressMask & CPX_A), CPX);
+}
+
+TEST(testCPYsimple, testCPYsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & CPY_I), CPY);
+    EXPECT_EQ((adressMask & CPY_Z), CPY);
+    EXPECT_EQ((adressMask & CPY_A), CPY);
+}
+
+TEST(testDECsimple, testDECsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & DEC_Z), DEC);
+    EXPECT_EQ((adressMask & DEC_ZX), DEC);
+    EXPECT_EQ((adressMask & DEC_A), DEC);
+    EXPECT_EQ((adressMask & DEC_AX), DEC);
+}
+
+TEST(testEORsimple, testEORsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & EOR_I), EOR);
+    EXPECT_EQ((adressMask & EOR_Z), EOR);
+    EXPECT_EQ((adressMask & EOR_ZX), EOR);
+    EXPECT_EQ((adressMask & EOR_A), EOR);
+    EXPECT_EQ((adressMask & EOR_AX), EOR);
+    EXPECT_EQ((adressMask & EOR_AY), EOR);
+    EXPECT_EQ((adressMask & EOR_IX), EOR);
+    EXPECT_EQ((adressMask & EOR_IY), EOR);
+}
+
+TEST(testINCsimple, testINCsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & INC_Z), INC);
+    EXPECT_EQ((adressMask & INC_ZX), INC);
+    EXPECT_EQ((adressMask & INC_A), INC);
+    EXPECT_EQ((adressMask & INC_AX), INC);
+}
+
+/*
+* JMP is an exception -> two opcodes
+TEST(testJMPsimple, testJMPsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & JMP_I), JMP);
+    EXPECT_EQ((adressMask & JMP_A), JMP);
+}*/
+
+TEST(testJSRsimple, testJSRsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & JSR_A), JSR);
+}
+
+TEST(testLDAsimple, testLDAsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & LDA_I), LDA);
+    EXPECT_EQ((adressMask & LDA_Z), LDA);
+    EXPECT_EQ((adressMask & LDA_ZX), LDA);
+    EXPECT_EQ((adressMask & LDA_A), LDA);
+    EXPECT_EQ((adressMask & LDA_AX), LDA);
+    EXPECT_EQ((adressMask & LDA_AY), LDA);
+    EXPECT_EQ((adressMask & LDA_IX), LDA);
+    EXPECT_EQ((adressMask & LDA_IY), LDA);
+}
+
+TEST(testLDXsimple, testLDXsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & LDX_I), LDX);
+    EXPECT_EQ((adressMask & LDX_Z), LDX);
+    EXPECT_EQ((adressMask & LDX_A), LDX);
+    EXPECT_EQ((adressMask & LDX_AY), LDX);
+    EXPECT_EQ((adressMask & LDX_ZY), LDX);
+}
+
+TEST(testLDYsimple, testLDYsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & LDY_I), LDY);
+    EXPECT_EQ((adressMask & LDY_Z), LDY);
+    EXPECT_EQ((adressMask & LDY_ZX), LDY);
+    EXPECT_EQ((adressMask & LDY_A), LDY);
+    EXPECT_EQ((adressMask & LDY_AX), LDY);
+}
+
+TEST(testLSRsimple, testLSRsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & LSR_Z), LSR);
+    EXPECT_EQ((adressMask & LSR_ZX), LSR);
+    EXPECT_EQ((adressMask & LSR_A), LSR);
+    EXPECT_EQ((adressMask & LSR_AX), LSR);
+    EXPECT_EQ((adressMask & LSR_AC), LSR);
+}
+
+TEST(testORAsimple, testORAsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & ORA_I), ORA);
+    EXPECT_EQ((adressMask & ORA_Z), ORA);
+    EXPECT_EQ((adressMask & ORA_ZX), ORA);
+    EXPECT_EQ((adressMask & ORA_A), ORA);
+    EXPECT_EQ((adressMask & ORA_AX), ORA);
+    EXPECT_EQ((adressMask & ORA_AY), ORA);
+    EXPECT_EQ((adressMask & ORA_IX), ORA);
+    EXPECT_EQ((adressMask & ORA_IY), ORA);
+}
+
+TEST(testROLsimple, testROLsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & ROL_Z), ROL);
+    EXPECT_EQ((adressMask & ROL_ZX), ROL);
+    EXPECT_EQ((adressMask & ROL_A), ROL);
+    EXPECT_EQ((adressMask & ROL_AX), ROL);
+    EXPECT_EQ((adressMask & ROL_AC), ROL);
+}
+
+TEST(testRORsimple, testRORsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & ROR_Z), ROR);
+    EXPECT_EQ((adressMask & ROR_ZX), ROR);
+    EXPECT_EQ((adressMask & ROR_A), ROR);
+    EXPECT_EQ((adressMask & ROR_AX), ROR);
+    EXPECT_EQ((adressMask & ROR_AC), ROR);
+}
+
+TEST(testSBCsimple, testSBCsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & SBC_I), SBC);
+    EXPECT_EQ((adressMask & SBC_Z), SBC);
+    EXPECT_EQ((adressMask & SBC_ZX), SBC);
+    EXPECT_EQ((adressMask & SBC_A), SBC);
+    EXPECT_EQ((adressMask & SBC_AX), SBC);
+    EXPECT_EQ((adressMask & SBC_AY), SBC);
+    EXPECT_EQ((adressMask & SBC_IX), SBC);
+    EXPECT_EQ((adressMask & SBC_IY), SBC);
+}
+
+TEST(testSTAsimple, testSTAsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & STA_Z), STA);
+    EXPECT_EQ((adressMask & STA_ZX), STA);
+    EXPECT_EQ((adressMask & STA_A), STA);
+    EXPECT_EQ((adressMask & STA_AX), STA);
+    EXPECT_EQ((adressMask & STA_AY), STA);
+    EXPECT_EQ((adressMask & STA_IX), STA);
+    EXPECT_EQ((adressMask & STA_IY), STA);
+}
+
+TEST(testSTXsimple, testSTXsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & STX_Z), STX);
+    EXPECT_EQ((adressMask & STX_A), STX);
+    EXPECT_EQ((adressMask & STX_ZY), STX);
+}
+
+TEST(testSTYsimple, testSTYsimple)
+{
+    Byte adressMask = ~0x1C;
+    
+    EXPECT_EQ((adressMask & STY_Z), STY);
+    EXPECT_EQ((adressMask & STY_ZX), STY);
+    EXPECT_EQ((adressMask & STY_A), STY);
+}
