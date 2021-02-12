@@ -57,12 +57,24 @@ LDA::operator()(Word& PC,
         break;
         case ABSOLUTE_Y_01:
         {
-            std::cout << "LDA: Absolute Y" << std::endl;
+            Byte address0 = memory[PC];
+            Byte address1 = memory[PC+1];
+            Word address = (address1<<8) + address0;
+            address += Y;
+            Byte data = memory[address];
+            A = data;
+            PC+=2;
         }
         break;
         case ABSOLUTE_X_01:
         {
-            std::cout << "LDA: Absolute X" << std::endl;
+            Byte address0 = memory[PC];
+            Byte address1 = memory[PC+1];
+            Word address = (address1<<8) + address0;
+            address += X;
+            Byte data = memory[address];
+            A = data;
+            PC+=2;
         }
         break;
     }
