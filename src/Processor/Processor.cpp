@@ -40,6 +40,27 @@ Processor::Processor(Memory& memory)
     ids.insert(std::make_pair(LDA_IX, current_id));
     ids.insert(std::make_pair(LDA_IY, current_id));
     instructions[current_id++] = new E6502_Instructions::LDA();
+
+    ids.insert(std::make_pair(TAX, current_id));
+    instructions[current_id++] = new E6502_Instructions::TAX();
+
+    ids.insert(std::make_pair(TXA, current_id));
+    instructions[current_id++] = new E6502_Instructions::TXA();
+
+    ids.insert(std::make_pair(DEX, current_id));
+    instructions[current_id++] = new E6502_Instructions::DEX();
+
+    ids.insert(std::make_pair(INX, current_id));
+    instructions[current_id++] = new E6502_Instructions::INX();
+
+    ids.insert(std::make_pair(TAY, current_id));
+    instructions[current_id++] = new E6502_Instructions::TYA();
+
+    ids.insert(std::make_pair(DEY, current_id));
+    instructions[current_id++] = new E6502_Instructions::DEY();
+
+    ids.insert(std::make_pair(INY, current_id));
+    instructions[current_id++] = new E6502_Instructions::INY();
 }
 
 Processor::~Processor()

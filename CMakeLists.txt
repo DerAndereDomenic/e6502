@@ -20,6 +20,14 @@ add_executable(${PROJECT_NAME} src/source.cpp
                                src/Instructions/CLD.h src/Instructions/CLD.cpp
                                src/Instructions/SED.h src/Instructions/SED.cpp
                                src/Instructions/LDA.h src/Instructions/LDA.cpp
+                               src/Instructions/TAX.h src/Instructions/TAX.cpp
+                               src/Instructions/TXA.h src/Instructions/TXA.cpp
+                               src/Instructions/DEX.h src/Instructions/DEX.cpp
+                               src/Instructions/INX.h src/Instructions/INX.cpp
+                               src/Instructions/TAY.h src/Instructions/TAY.cpp
+                               src/Instructions/TYA.h src/Instructions/TYA.cpp
+                               src/Instructions/DEY.h src/Instructions/DEY.cpp
+                               src/Instructions/INY.h src/Instructions/INY.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC src)

@@ -9,5 +9,13 @@
 #include <Instructions/CLD.h>
 #include <Instructions/SED.h>
 #include <Instructions/LDA.h>
+#include <Instructions/TAX.h>
+#include <Instructions/TXA.h>
+#include <Instructions/DEX.h>
+#include <Instructions/INX.h>
+#include <Instructions/TAY.h>
+#include <Instructions/TYA.h>
+#include <Instructions/DEY.h>
+#include <Instructions/INY.h>
 
 #endif
