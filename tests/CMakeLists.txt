@@ -20,3 +20,23 @@ endmacro()
 
 package_add_test(OpCodesTests OpCodesTests.cpp)
 package_add_test(BitCheckTests BitCheckTests.cpp ../src/Processor/ProcessorStatus.cpp)
+package_add_test(InstructionTests.cpp ../src/Instructions/LDA.cpp
+                                      ../src/Instructions/CLC.cpp
+                                      ../src/Instructions/CLD.cpp
+                                      ../src/Instructions/CLI.cpp
+                                      ../src/Instructions/CLV.cpp
+                                      ../src/Instructions/DEX.cpp
+                                      ../src/Instructions/DEY.cpp
+                                      ../src/Instructions/INX.cpp
+                                      ../src/Instructions/INY.cpp
+                                      ../src/Instructions/SEC.cpp
+                                      ../src/Instructions/SED.cpp
+                                      ../src/Instructions/SEI.cpp
+                                      ../src/Instructions/TAX.cpp
+                                      ../src/Instructions/TAY.cpp
+                                      ../src/Instructions/TXA.cpp
+                                      ../src/Instructions/TYA.cpp
+                                      ../src/Memory/Memory.cpp
+                                      ../src/Processor/Processor.cpp
+                                      ../src/Processor/ProcessorStatus.cpp
+)
