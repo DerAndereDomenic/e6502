@@ -20,7 +20,8 @@ endmacro()
 
 package_add_test(OpCodesTests OpCodesTests.cpp)
 package_add_test(BitCheckTests BitCheckTests.cpp ../src/Processor/ProcessorStatus.cpp)
-package_add_test(InstructionTests.cpp ../src/Instructions/LDA.cpp
+package_add_test(InstructionTests InstructionTests.cpp 
+                                      ../src/Instructions/LDA.cpp
                                       ../src/Instructions/CLC.cpp
                                       ../src/Instructions/CLD.cpp
                                       ../src/Instructions/CLI.cpp
