@@ -37,9 +37,7 @@ LDA::operator()(Word& PC,
         break;
         case ABSOLUTE_01:
         {
-            Byte address0 = memory[PC];
-            Byte address1 = memory[PC+1];
-            Word address = (address1<<8) + address0;
+            Word address = memory(PC);
             Byte data = memory[address];
             A = data;
             PC+=2;
@@ -57,9 +55,7 @@ LDA::operator()(Word& PC,
         break;
         case ABSOLUTE_Y_01:
         {
-            Byte address0 = memory[PC];
-            Byte address1 = memory[PC+1];
-            Word address = (address1<<8) + address0;
+            Word address = memory(PC);
             address += Y;
             Byte data = memory[address];
             A = data;
@@ -68,9 +64,7 @@ LDA::operator()(Word& PC,
         break;
         case ABSOLUTE_X_01:
         {
-            Byte address0 = memory[PC];
-            Byte address1 = memory[PC+1];
-            Word address = (address1<<8) + address0;
+            Word address = memory(PC);
             address += X;
             Byte data = memory[address];
             A = data;
