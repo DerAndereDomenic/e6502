@@ -18,6 +18,13 @@ namespace E6502
              *  @return The byte stored at the specified location (reference)
              */
             Byte& operator[](const Word& pointer);
+
+            /**
+             *  @brief Get the two bytes at the specified location (+1)
+             *  @param pointer The pointer to memory
+             *  @return The word stored at the given and next location
+             */
+            Word operator()(const Word& pointer);
         private:
             Byte RAM[MEMORY_SIZE] = {0,};
     };
