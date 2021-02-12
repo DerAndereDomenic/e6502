@@ -34,7 +34,7 @@ namespace E6502
              */
             void
             printProcessorStatus();
-        private:
+        //private:
             Word PC;                                                /**< Program Counter */
             Byte SP;                                                /**< Stack Pointer */
             Byte A;                                                 /**< Accumulator */
