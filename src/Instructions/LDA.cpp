@@ -17,7 +17,10 @@ LDA::operator()(Word& PC,
     {
         case ZERO_PAGE_X_INDIRECT_01:
         {
-            std::cout << "LDA: Zero Page X Indirect" << std::endl;
+            Byte address = memory[PC] + X;
+            Byte data = memory[memory(address)];
+            A = data;
+            ++PC;
         }
         break;
         case ZERO_PAGE_01:
@@ -45,12 +48,19 @@ LDA::operator()(Word& PC,
         break;
         case ZERO_PAGE_Y_INDIRECT_01:
         {
-            std::cout << "LDA: Zero Page Y Indirect" << std::endl;
+            Byte address = memory[PC];
+            Byte data = memory[memory(address)+Y];
+            A = data;
+            ++PC;
         }
         break;
         case ZERO_PAGE_X_01:
         {
-            std::cout << "LDA: Zero Page X" << std::endl;
+            Byte address = memory(PC);
+            address += X;
+            Byte data = memory[address];
+            A = data;
+            ++PC;
         }
         break;
         case ABSOLUTE_Y_01:
