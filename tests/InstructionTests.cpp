@@ -307,3 +307,147 @@ TEST(deyZero, deyZero)
     EXPECT_EQ(processor.Y, 0x00);
     EXPECT_EQ(processor.processor_status.Z, 1);
 }
+
+TEST(ldaImmediate, ldaImmediate)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDA_I;
+    memory[STACK_START + 2] = 0xC1;
+    Processor processor(memory);
+    processor.start();
+
+    EXPECT_EQ(processor.A, 0xC1);
+}
+
+TEST(ldaZeroPage, ldaZeroPage)
+{
+    Memory memory;
+    memory[0x3F] = 0x42;
+    memory[STACK_START + 1] = LDA_Z;
+    memory[STACK_START + 2] = 0x3F;
+    Processor processor(memory);
+    processor.start();
+
+    EXPECT_EQ(processor.A, 0x42);
+}
+
+TEST(ldaZeroX, ldaZeroX)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDA_ZX;
+    memory[STACK_START + 2] = 0xC0;
+    memory[0xC5] = 0x52;
+    Processor processor(memory);
+    processor.X = 0x05;
+
+    processor.start();
+
+    EXPECT_EQ(processor.A, 0x52);
+}
+
+TEST(ldaZeroXWrap, ldaZeroXWrap)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDA_ZX;
+    memory[STACK_START + 2] = 0xC0;
+    memory[0x20] = 0x52;
+    Processor processor(memory);
+    processor.X = 0x60;
+
+    processor.start();
+
+    EXPECT_EQ(processor.A, 0x52);
+}
+
+TEST(ldaAbsolute, ldaAbsolute)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDA_A;
+    memory[STACK_START + 2] = 0x31;
+    memory[STACK_START + 3] = 0xAC;
+    memory[0xAC31] = 0x7F;
+    Processor processor(memory);
+
+    processor.start();
+
+    EXPECT_EQ(processor.A, 0x7F);
+}
+
+TEST(ldaAbsoluteX, ldaAbsoluteX)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDA_AX;
+    memory[STACK_START + 2] = 0x30;
+    memory[STACK_START + 3] = 0xAC;
+    memory[0xAC39] = 0x7F;
+    Processor processor(memory);
+    processor.X = 0x09;
+
+    processor.start();
+
+    EXPECT_EQ(processor.A, 0x7F);
+}
+
+TEST(ldaAbsoluteY, ldaAbsoluteY)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDA_AX;
+    memory[STACK_START + 2] = 0x30;
+    memory[STACK_START + 3] = 0xAC;
+    memory[0xAC39] = 0x7F;
+    Processor processor(memory);
+    processor.Y = 0x09;
+
+    processor.start();
+
+    EXPECT_EQ(processor.A, 0x7F);
+}
+
+TEST(ldaIndirectX, ldaIndirectX)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDA_IX;
+    memory[STACK_START + 2] = 0x20;
+    memory[0x24] = 0x74;
+    memory[0x25] = 0x20;
+    memory[0x2074] = 0x11;
+    Processor processor(memory);
+    processor.X = 0x04;
+
+    processor.start();
+
+    EXPECT_EQ(processor.A, 0x11);
+}
+
+TEST(ldaIndirectXWrap, ldaIndirectXWrap)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDA_IX;
+    memory[STACK_START + 2] = 0x20;
+    memory[0x01] = 0x74;
+    memory[0x02] = 0x20;
+    memory[0x2074] = 0x11;
+    Processor processor(memory);
+    processor.X = 0xE1;
+
+    processor.start();
+
+    EXPECT_EQ(processor.A, 0x11);
+}
+
+TEST(ldaIndirectY, ldaIndirectY)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDA_IY;
+    memory[STACK_START + 2] = 0x86;
+    memory[0x86] = 0x28;
+    memory[0x87] = 0x40;
+    memory[0x4038] = 0xF1;
+    Processor processor(memory);
+    processor.Y = 0x10;
+
+    processor.start();
+
+    EXPECT_EQ(processor.A, 0xF1);
+    EXPECT_EQ(processor.processor_status.N, 1);
+}
