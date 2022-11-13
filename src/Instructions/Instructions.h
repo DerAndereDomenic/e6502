@@ -18,6 +18,7 @@
 #include <Instructions/LDY.h>
 #include <Instructions/STA.h>
 #include <Instructions/STX.h>
+#include <Instructions/STY.h>
 #include <Instructions/TAX.h>
 #include <Instructions/TXA.h>
 #include <Instructions/DEX.h>
