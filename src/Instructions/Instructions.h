@@ -1,6 +1,7 @@
 #ifndef __E6502_INSTRUCTIONS_INSTRUCTIONS_H
 #define __E6502_INSTRUCTIONS_INSTRUCTIONS_H
 
+#include <Instructions/AND.h>
 #include <Instructions/ADC.h>
 #include <Instructions/CLC.h>
 #include <Instructions/SEC.h>

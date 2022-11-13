@@ -41,6 +41,16 @@ Processor::Processor(Memory& memory)
     ids.insert(std::make_pair(ADC_IY, current_id));
     instructions[current_id++] = new E6502_Instructions::ADC();
 
+    ids.insert(std::make_pair(AND_I, current_id));
+    ids.insert(std::make_pair(AND_Z, current_id));
+    ids.insert(std::make_pair(AND_ZX, current_id));
+    ids.insert(std::make_pair(AND_A, current_id));
+    ids.insert(std::make_pair(AND_AX, current_id));
+    ids.insert(std::make_pair(AND_AY, current_id));
+    ids.insert(std::make_pair(AND_IX, current_id));
+    ids.insert(std::make_pair(AND_IY, current_id));
+    instructions[current_id++] = new E6502_Instructions::AND();
+
     ids.insert(std::make_pair(LDA_I, current_id));
     ids.insert(std::make_pair(LDA_Z, current_id));
     ids.insert(std::make_pair(LDA_ZX, current_id));

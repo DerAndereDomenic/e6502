@@ -7,17 +7,21 @@ int main()
 {
     E6502::Memory memory;
     memory[0xF114] = 255;
+    memory[0xF115] = 1;
     memory[STACK_START + 1] = E6502::LDA_A;
     memory[STACK_START + 2] = 0x14;
     memory[STACK_START + 3] = 0xF1;
     memory[STACK_START + 4] = E6502::ADC_I;
     memory[STACK_START + 5] = 1;
     memory[STACK_START + 6] = E6502::ADC_I;
-    memory[STACK_START + 7] = 5;
+    memory[STACK_START + 7] = 6;
     memory[STACK_START + 8] = E6502::PHA;
     memory[STACK_START + 9] = E6502::PLA;
     memory[STACK_START + 10] = E6502::PHP;
     memory[STACK_START + 11] = E6502::PLP;
+    memory[STACK_START + 12] = E6502::AND_A;
+    memory[STACK_START + 13] = 0x15;
+    memory[STACK_START + 14] = 0xF1;
     E6502::Processor processor(memory);
 
     auto start_time = std::chrono::high_resolution_clock::now();
