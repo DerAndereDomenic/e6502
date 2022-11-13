@@ -80,6 +80,9 @@ Processor::Processor(Memory& memory)
     ids.insert(std::make_pair(TAY, current_id));
     instructions[current_id++] = new E6502_Instructions::TAY();
 
+    ids.insert(std::make_pair(TSX, current_id));
+    instructions[current_id++] = new E6502_Instructions::TSX();
+
     ids.insert(std::make_pair(DEY, current_id));
     instructions[current_id++] = new E6502_Instructions::DEY();
 
