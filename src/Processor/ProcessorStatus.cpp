@@ -55,7 +55,7 @@ ProcessorStatus::asByte()
     result |= (Z << 1);
     result |= (C << 0);
 
-    result;
+    return result;
 }
 
 void

@@ -98,6 +98,9 @@ Processor::Processor(Memory& memory)
     ids.insert(std::make_pair(PHA, current_id));
     instructions[current_id++] = new E6502_Instructions::PHA();
 
+    ids.insert(std::make_pair(PHP, current_id));
+    instructions[current_id++] = new E6502_Instructions::PHP();
+
     ids.insert(std::make_pair(PLA, current_id));
     instructions[current_id++] = new E6502_Instructions::PLA();
 }

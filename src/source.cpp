@@ -19,6 +19,7 @@ int main()
     memory[STACK_START + 10] = E6502::DEX;
     memory[STACK_START + 11] = E6502::TXS;
     memory[STACK_START + 12] = E6502::PLA;
+    memory[STACK_START + 13] = E6502::PHP;
     E6502::Processor processor(memory);
 
     auto start_time = std::chrono::high_resolution_clock::now();
