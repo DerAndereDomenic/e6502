@@ -32,7 +32,7 @@ STX::operator()(Word& PC,
         case ZERO_PAGE_X_10:
         {
             Byte address = memory(PC);
-            address += X;
+            address += Y;
             memory[address] = X;
             ++PC;
         }
