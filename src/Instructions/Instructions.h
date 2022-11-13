@@ -9,6 +9,7 @@
 #include <Instructions/CLD.h>
 #include <Instructions/SED.h>
 #include <Instructions/LDA.h>
+#include <Instructions/LDX.h>
 #include <Instructions/TAX.h>
 #include <Instructions/TXA.h>
 #include <Instructions/DEX.h>
