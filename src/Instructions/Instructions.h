@@ -16,6 +16,7 @@
 #include <Instructions/LDA.h>
 #include <Instructions/LDX.h>
 #include <Instructions/LDY.h>
+#include <Instructions/STA.h>
 #include <Instructions/TAX.h>
 #include <Instructions/TXA.h>
 #include <Instructions/DEX.h>
