@@ -15,9 +15,9 @@ ProcessorStatus::checkCarry(const int16_t& word)
 }
 
 void 
-ProcessorStatus::checkOverflow(const Byte& inp1, const Byte& inp2)
+ProcessorStatus::checkOverflow(const Byte& inp1, const Byte& inp2, const Byte& c)
 {
-    Byte result = inp1+inp2;
+    Byte result = inp1+inp2+c;
     if((inp1 & 0x80) == (inp2 & 0x80))
     {
         if((inp1 & 0x80) == (result & 0x80))

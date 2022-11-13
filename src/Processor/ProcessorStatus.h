@@ -29,9 +29,10 @@ namespace E6502
          *  @brief Check if overflow was encountered for inp1+inp2.
          *  @param inp1 The first input
          *  @param inp2 The second input
+         *  @param c The carry
          */
         void 
-        checkOverflow(const Byte& inp1, const Byte& inp2);
+        checkOverflow(const Byte& inp1, const Byte& inp2, const Byte& c = 0);
 
         /**
          *  @brief Check if the byte is negative.
