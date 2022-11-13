@@ -107,7 +107,8 @@ void
 Processor::reset()
 {
     //TODO: Reset memory?
-    SP = 0;
+    //The stack is defined from 0x01ff to 0x0100 starting from 0x01ff. Therefore, the 8-Bit Stackpointer is 0xff at the start.
+    SP = 0xFF;
     PC = STACK_START + 1;
 }
 
