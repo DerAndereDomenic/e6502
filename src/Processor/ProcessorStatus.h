@@ -42,6 +42,22 @@ namespace E6502
         void 
         checkNegative(const Byte& byte);
 
+        /**
+        *   @brief Get the current processor status as byte
+        * 
+        *   @return The processor status encoded as byte
+        */
+        Byte
+        asByte();
+
+        /**
+        *   @brief Convert a status byte to the bit representation
+        * 
+        *   @param status The new status
+        */
+        void
+        fromByte(const Byte& status);
+
         Byte C : 1;     /**< Carry bit */
         Byte Z : 1;     /**< Zero bit */
         Byte I : 1;     /**< Interrupt Disable */
