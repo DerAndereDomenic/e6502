@@ -41,6 +41,13 @@ Processor::Processor(Memory& memory)
     ids.insert(std::make_pair(LDA_IY, current_id));
     instructions[current_id++] = new E6502_Instructions::LDA();
 
+    ids.insert(std::make_pair(LDX_I, current_id));
+    ids.insert(std::make_pair(LDX_Z, current_id));
+    ids.insert(std::make_pair(LDX_ZY, current_id));
+    ids.insert(std::make_pair(LDX_A, current_id));
+    ids.insert(std::make_pair(LDX_AY, current_id));
+    instructions[current_id++] = new E6502_Instructions::LDX();
+
     ids.insert(std::make_pair(TAX, current_id));
     instructions[current_id++] = new E6502_Instructions::TAX();
 
@@ -104,7 +111,9 @@ Processor::start()
         ++PC;
         //3) execute op
         AddressingModes addressing = static_cast<AddressingModes>((ADDRESS_MASK & opcode) >> 2);
-        uint32_t id = ids.find(static_cast<OpCodesAdressed>(opcode))->second;
+        auto instruction = ids.find(static_cast<OpCodesAdressed>(opcode));
+        assert(instruction != ids.end());
+        uint32_t id = instruction->second;
         Instruction* op = instructions[id];
         assert(op != nullptr);
         op->operator()(PC, SP, A, X, Y, processor_status, memory, addressing); 

@@ -23,7 +23,7 @@ namespace E6502
         ACCUMULATOR_10 = 0b010,
         ABSOLUTE_10 = 0b011,
         ZERO_PAGE_X_10 = 0b101,
-        ABSOLUE_X_10 = 0b111,
+        ABSOLUTE_X_10 = 0b111,
 
         //Opcodes cc=00
         IMMEDIATE_00 = 0b000,

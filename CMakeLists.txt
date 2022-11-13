@@ -21,6 +21,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
                                src/Instructions/CLD.h src/Instructions/CLD.cpp
                                src/Instructions/SED.h src/Instructions/SED.cpp
                                src/Instructions/LDA.h src/Instructions/LDA.cpp
+							   src/Instructions/LDX.h src/Instructions/LDX.cpp
                                src/Instructions/TAX.h src/Instructions/TAX.cpp
                                src/Instructions/TXA.h src/Instructions/TXA.cpp
                                src/Instructions/DEX.h src/Instructions/DEX.cpp
