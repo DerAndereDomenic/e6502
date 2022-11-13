@@ -256,7 +256,7 @@ TEST(testASL, testASL)
     EXPECT_EQ(ZERO_PAGE_X_10, adressing);
 
     adressing = (adressMask & ASL_AX)>>2;
-    EXPECT_EQ(ABSOLUE_X_10, adressing);
+    EXPECT_EQ(ABSOLUTE_X_10, adressing);
 }
 
 TEST(testROL, testROL)
@@ -277,7 +277,7 @@ TEST(testROL, testROL)
     EXPECT_EQ(ZERO_PAGE_X_10, adressing);
 
     adressing = (adressMask & ROL_AX)>>2;
-    EXPECT_EQ(ABSOLUE_X_10, adressing);
+    EXPECT_EQ(ABSOLUTE_X_10, adressing);
 }
 
 TEST(testLSR, testLSR)
@@ -298,7 +298,7 @@ TEST(testLSR, testLSR)
     EXPECT_EQ(ZERO_PAGE_X_10, adressing);
 
     adressing = (adressMask & LSR_AX)>>2;
-    EXPECT_EQ(ABSOLUE_X_10, adressing);
+    EXPECT_EQ(ABSOLUTE_X_10, adressing);
 }
 
 TEST(testROR, testROR)
@@ -319,7 +319,7 @@ TEST(testROR, testROR)
     EXPECT_EQ(ZERO_PAGE_X_10, adressing);
 
     adressing = (adressMask & ROR_AX)>>2;
-    EXPECT_EQ(ABSOLUE_X_10, adressing);
+    EXPECT_EQ(ABSOLUTE_X_10, adressing);
 }
 
 TEST(testSTX, testSTX)
@@ -356,7 +356,7 @@ TEST(testLDX, testLDX)
     EXPECT_EQ(ZERO_PAGE_X_10, adressing);
 
     adressing = (adressMask & LDX_AY)>>2;
-    EXPECT_EQ(ABSOLUE_X_10, adressing);
+    EXPECT_EQ(ABSOLUTE_X_10, adressing);
 }
 
 TEST(testDEC, testDEC)
@@ -374,7 +374,7 @@ TEST(testDEC, testDEC)
     EXPECT_EQ(ZERO_PAGE_X_10, adressing);
 
     adressing = (adressMask & DEC_AX)>>2;
-    EXPECT_EQ(ABSOLUE_X_10, adressing);
+    EXPECT_EQ(ABSOLUTE_X_10, adressing);
 }
 
 TEST(testINC, testINC)
@@ -392,7 +392,7 @@ TEST(testINC, testINC)
     EXPECT_EQ(ZERO_PAGE_X_10, adressing);
 
     adressing = (adressMask & INC_AX)>>2;
-    EXPECT_EQ(ABSOLUE_X_10, adressing);
+    EXPECT_EQ(ABSOLUTE_X_10, adressing);
 }
 
 TEST(testBIT, testBIT)
