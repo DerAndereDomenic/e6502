@@ -7,6 +7,7 @@ namespace E6502
 {
     #define MEMORY_SIZE 0xFFFF  /**< The size of memory */
     #define STACK_START 0x01FF  /**< The memory offset into memory for the stack pointer */
+    #define STACK_END 0x0100
     #define PAGE_SIZE 0xFF      /**< The size of a page */
     #define ADDRESS_MASK 0x1C    /**< The address mask */
 

@@ -31,6 +31,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
                                src/Instructions/TAY.h src/Instructions/TAY.cpp
                                src/Instructions/TYA.h src/Instructions/TYA.cpp
 							   src/Instructions/TSX.h src/Instructions/TSX.cpp
+							   src/Instructions/TXS.h src/Instructions/TXS.cpp
                                src/Instructions/DEY.h src/Instructions/DEY.cpp
                                src/Instructions/INY.h src/Instructions/INY.cpp
 )

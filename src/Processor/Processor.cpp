@@ -83,6 +83,9 @@ Processor::Processor(Memory& memory)
     ids.insert(std::make_pair(TSX, current_id));
     instructions[current_id++] = new E6502_Instructions::TSX();
 
+    ids.insert(std::make_pair(TXS, current_id));
+    instructions[current_id++] = new E6502_Instructions::TXS();
+
     ids.insert(std::make_pair(DEY, current_id));
     instructions[current_id++] = new E6502_Instructions::DEY();
 
@@ -145,7 +148,7 @@ void
 Processor::printProcessorStatus()
 {
     std::cout << "Program Counter: 0x" << std::hex <<  PC << std::endl;
-    std::cout << "Stack Pointer: 0x" << std::hex << SP + (STACK_START) << std::endl;
+    std::cout << "Stack Pointer: 0x" << std::hex << SP + (STACK_END) << std::endl;
     std::cout << "Register A: " << static_cast<int32_t>(A) << std::endl;
     std::cout << "Register X: " << static_cast<int32_t>(X) << std::endl;
     std::cout << "Register Y: " << static_cast<int32_t>(Y) << std::endl;

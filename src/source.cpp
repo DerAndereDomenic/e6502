@@ -15,6 +15,8 @@ int main()
     memory[STACK_START + 6] = E6502::ADC_I;
     memory[STACK_START + 7] = 5;
     memory[STACK_START + 8] = E6502::TSX;
+    memory[STACK_START + 9] = E6502::DEX;
+    memory[STACK_START + 10] = E6502::TXS;
     E6502::Processor processor(memory);
 
     auto start_time = std::chrono::high_resolution_clock::now();

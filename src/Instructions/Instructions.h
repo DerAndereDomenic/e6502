@@ -19,6 +19,7 @@
 #include <Instructions/TAY.h>
 #include <Instructions/TYA.h>
 #include <Instructions/TSX.h>
+#include <Instructions/TXS.h>
 #include <Instructions/DEY.h>
 #include <Instructions/INY.h>
 
