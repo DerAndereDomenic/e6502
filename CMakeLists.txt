@@ -37,6 +37,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
 							   src/Instructions/PHA.h src/Instructions/PHA.cpp
 							   src/Instructions/PLA.h src/Instructions/PLA.cpp
 							   src/Instructions/PHP.h src/Instructions/PHP.cpp
+							   src/Instructions/PLP.h src/Instructions/PLP.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC src)

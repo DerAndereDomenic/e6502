@@ -1,10 +1,10 @@
-#include <Instructions/PLA.h>
+#include <Instructions/PLP.h>
 #include <iostream>
 
 using namespace E6502_Instructions;
 
 void 
-PLA::operator()(Word& PC,
+PLP::operator()(Word& PC,
                 Byte& SP,                         
                 Byte& A,                             
                 Byte& X,                             
@@ -15,7 +15,7 @@ PLA::operator()(Word& PC,
 {
     ++SP;
     Word stack = STACK_END + SP;
-    A = memory[stack];
-    processor_status.checkNegative(A);
-    processor_status.checkZero(A);
+    Byte status = memory[stack];
+    status &= ~0b00110000;
+    processor_status.fromByte(status);
 } 

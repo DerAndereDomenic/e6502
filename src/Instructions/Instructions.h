@@ -25,5 +25,6 @@
 #include <Instructions/PHA.h>
 #include <Instructions/PHP.h>
 #include <Instructions/PLA.h>
+#include <Instructions/PLP.h>
 
 #endif

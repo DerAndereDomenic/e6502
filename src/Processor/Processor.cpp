@@ -103,6 +103,9 @@ Processor::Processor(Memory& memory)
 
     ids.insert(std::make_pair(PLA, current_id));
     instructions[current_id++] = new E6502_Instructions::PLA();
+
+    ids.insert(std::make_pair(PLP, current_id));
+    instructions[current_id++] = new E6502_Instructions::PLP();
 }
 
 Processor::~Processor()
