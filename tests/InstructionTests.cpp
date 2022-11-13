@@ -391,7 +391,7 @@ TEST(ldaAbsoluteX, ldaAbsoluteX)
 TEST(ldaAbsoluteY, ldaAbsoluteY)
 {
     Memory memory;
-    memory[STACK_START + 1] = LDA_AX;
+    memory[STACK_START + 1] = LDA_AY;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0xAC;
     memory[0xAC39] = 0x7F;
