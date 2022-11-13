@@ -21,6 +21,7 @@ int main()
     auto end_time = std::chrono::high_resolution_clock::now();
 
     processor.printProcessorStatus();
+    memory.print();
 
     std::cout << "Execution time: " << (end_time-start_time)/std::chrono::milliseconds(1) << " ms" << std::endl;
 

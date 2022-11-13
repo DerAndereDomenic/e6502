@@ -25,6 +25,11 @@ namespace E6502
              *  @return The word stored at the given and next location
              */
             Word operator()(const Word& pointer);
+
+            /**
+            *   @brief Prints the memory to the console
+            */
+            void print();
         private:
             Byte RAM[MEMORY_SIZE] = {0,};
     };
