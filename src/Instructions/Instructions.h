@@ -23,5 +23,6 @@
 #include <Instructions/DEY.h>
 #include <Instructions/INY.h>
 #include <Instructions/PHA.h>
+#include <Instructions/PLA.h>
 
 #endif
