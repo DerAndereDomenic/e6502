@@ -16,6 +16,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
 							   src/Instructions/ADC.h src/Instructions/ADC.cpp
 							   src/Instructions/AND.h src/Instructions/AND.cpp
 							   src/Instructions/EOR.h src/Instructions/EOR.cpp
+							   src/Instructions/ORA.h src/Instructions/ORA.cpp
 							   src/Instructions/ASL.h src/Instructions/ASL.cpp
                                src/Instructions/CLC.h src/Instructions/CLC.cpp
                                src/Instructions/SEC.h src/Instructions/SEC.cpp
