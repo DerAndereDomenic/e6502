@@ -8,6 +8,7 @@ int main()
     E6502::Memory memory;
     memory[0xF114] = 255;
     memory[0xF115] = 1;
+    memory[0x0016] = 0xFE;
     memory[STACK_START + 1] = E6502::LDA_A;
     memory[STACK_START + 2] = 0x14;
     memory[STACK_START + 3] = 0xF1;
@@ -22,6 +23,13 @@ int main()
     memory[STACK_START + 12] = E6502::AND_A;
     memory[STACK_START + 13] = 0x15;
     memory[STACK_START + 14] = 0xF1;
+    memory[STACK_START + 15] = E6502::LDA_I;
+    memory[STACK_START + 16] = 0x1;
+    memory[STACK_START + 17] = E6502::ASL_AC;
+    memory[STACK_START + 18] = E6502::LDX_I;
+    memory[STACK_START + 19] = 1;
+    memory[STACK_START + 20] = E6502::ASL_ZX;
+    memory[STACK_START + 21] = 0x15;
     E6502::Processor processor(memory);
 
     auto start_time = std::chrono::high_resolution_clock::now();
