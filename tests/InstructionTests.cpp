@@ -531,3 +531,83 @@ TEST(ldxAbsoluteY, ldxAbsoluteY)
 
     EXPECT_EQ(processor.X, 0x7F);
 }
+
+TEST(ldyImmediate, ldyImmediate)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDY_I;
+    memory[STACK_START + 2] = 0xC1;
+    Processor processor(memory);
+    processor.start();
+
+    EXPECT_EQ(processor.Y, 0xC1);
+}
+
+TEST(ldyZeroPage, ldyZeroPage)
+{
+    Memory memory;
+    memory[0x3F] = 0x42;
+    memory[STACK_START + 1] = LDY_Z;
+    memory[STACK_START + 2] = 0x3F;
+    Processor processor(memory);
+    processor.start();
+
+    EXPECT_EQ(processor.Y, 0x42);
+}
+
+TEST(ldyZeroY, ldyZeroY)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDY_ZX;
+    memory[STACK_START + 2] = 0xC0;
+    memory[0xC5] = 0x52;
+    Processor processor(memory);
+    processor.X = 0x05;
+
+    processor.start();
+
+    EXPECT_EQ(processor.Y, 0x52);
+}
+
+TEST(ldyZeroYWrap, ldyZeroYWrap)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDY_ZX;
+    memory[STACK_START + 2] = 0xC0;
+    memory[0x20] = 0x52;
+    Processor processor(memory);
+    processor.X = 0x60;
+
+    processor.start();
+
+    EXPECT_EQ(processor.Y, 0x52);
+}
+
+TEST(ldyAbsolute, ldyAbsolute)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDY_A;
+    memory[STACK_START + 2] = 0x31;
+    memory[STACK_START + 3] = 0xAC;
+    memory[0xAC31] = 0x7F;
+    Processor processor(memory);
+
+    processor.start();
+
+    EXPECT_EQ(processor.Y, 0x7F);
+}
+
+TEST(ldyAbsoluteY, ldyAbsoluteY)
+{
+    Memory memory;
+    memory[STACK_START + 1] = LDY_AX;
+    memory[STACK_START + 2] = 0x30;
+    memory[STACK_START + 3] = 0xAC;
+    memory[0xAC39] = 0x7F;
+    Processor processor(memory);
+    processor.X = 0x09;
+
+    processor.start();
+
+    EXPECT_EQ(processor.Y, 0x7F);
+}
