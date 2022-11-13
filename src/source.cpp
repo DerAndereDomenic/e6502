@@ -41,6 +41,10 @@ int main()
     memory[STACK_START + 29] = E6502::STA_A;
     memory[STACK_START + 30] = 0x17;
     memory[STACK_START + 31] = 0xF1;
+    memory[STACK_START + 32] = E6502::LDX_I;
+    memory[STACK_START + 33] = 0x42;
+    memory[STACK_START + 34] = E6502::STX_Z;
+    memory[STACK_START + 35] = 0x17;
     E6502::Processor processor(memory);
 
     auto start_time = std::chrono::high_resolution_clock::now();
