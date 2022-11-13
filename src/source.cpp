@@ -14,9 +14,10 @@ int main()
     memory[STACK_START + 5] = 1;
     memory[STACK_START + 6] = E6502::ADC_I;
     memory[STACK_START + 7] = 5;
-    memory[STACK_START + 8] = E6502::TSX;
-    memory[STACK_START + 9] = E6502::DEX;
-    memory[STACK_START + 10] = E6502::TXS;
+    memory[STACK_START + 8] = E6502::PHA;
+    memory[STACK_START + 9] = E6502::TSX;
+    memory[STACK_START + 10] = E6502::DEX;
+    memory[STACK_START + 11] = E6502::TXS;
     E6502::Processor processor(memory);
 
     auto start_time = std::chrono::high_resolution_clock::now();
@@ -24,7 +25,6 @@ int main()
     auto end_time = std::chrono::high_resolution_clock::now();
 
     processor.printProcessorStatus();
-    memory.print();
 
     std::cout << "Execution time: " << (end_time-start_time)/std::chrono::milliseconds(1) << " ms" << std::endl;
 

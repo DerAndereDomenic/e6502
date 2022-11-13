@@ -34,6 +34,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
 							   src/Instructions/TXS.h src/Instructions/TXS.cpp
                                src/Instructions/DEY.h src/Instructions/DEY.cpp
                                src/Instructions/INY.h src/Instructions/INY.cpp
+							   src/Instructions/PHA.h src/Instructions/PHA.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC src)

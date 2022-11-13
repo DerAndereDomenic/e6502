@@ -94,6 +94,9 @@ Processor::Processor(Memory& memory)
 
     ids.insert(std::make_pair(TYA, current_id));
     instructions[current_id++] = new E6502_Instructions::TYA();
+
+    ids.insert(std::make_pair(PHA, current_id));
+    instructions[current_id++] = new E6502_Instructions::PHA();
 }
 
 Processor::~Processor()
@@ -167,4 +170,6 @@ Processor::printProcessorStatus()
         << "|" << static_cast<int32_t>(processor_status.B)
         << "|" << static_cast<int32_t>(processor_status.V)
         << "|" << static_cast<int32_t>(processor_status.N) << "|" << std::dec << std::endl;
+
+    memory.print();
 }

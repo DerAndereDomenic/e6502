@@ -22,5 +22,6 @@
 #include <Instructions/TXS.h>
 #include <Instructions/DEY.h>
 #include <Instructions/INY.h>
+#include <Instructions/PHA.h>
 
 #endif
