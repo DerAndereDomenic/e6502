@@ -57,6 +57,6 @@ LDY::operator()(Word& PC,
         }
         break;
     }
-    processor_status.checkZero(A);
-    processor_status.checkNegative(A);
+    processor_status.checkZero(Y);
+    processor_status.checkNegative(Y);
 }
