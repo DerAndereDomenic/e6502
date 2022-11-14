@@ -40,6 +40,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
 							   src/Instructions/TSX.h src/Instructions/TSX.cpp
 							   src/Instructions/TXS.h src/Instructions/TXS.cpp
                                src/Instructions/DEY.h src/Instructions/DEY.cpp
+							   src/Instructions/DEC.h src/Instructions/DEC.cpp
                                src/Instructions/INY.h src/Instructions/INY.cpp
 							   src/Instructions/PHA.h src/Instructions/PHA.cpp
 							   src/Instructions/PLA.h src/Instructions/PLA.cpp

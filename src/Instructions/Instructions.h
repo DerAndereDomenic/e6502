@@ -28,6 +28,7 @@
 #include <Instructions/TSX.h>
 #include <Instructions/TXS.h>
 #include <Instructions/DEY.h>
+#include <Instructions/DEC.h>
 #include <Instructions/INY.h>
 #include <Instructions/PHA.h>
 #include <Instructions/PHP.h>
