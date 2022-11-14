@@ -19,6 +19,7 @@ LSR::operator()(Word& PC,
         {
             Byte address = memory[PC];
             Byte val = memory[address];
+            processor_status.C = val & 1;
             val = val >> 1;
             memory[address] = val;
 
