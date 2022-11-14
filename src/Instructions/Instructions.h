@@ -5,6 +5,7 @@
 #include <Instructions/ADC.h>
 #include <Instructions/ASL.h>
 #include <Instructions/LSR.h>
+#include <Instructions/ROL.h>
 #include <Instructions/EOR.h>
 #include <Instructions/ORA.h>
 #include <Instructions/CLC.h>
