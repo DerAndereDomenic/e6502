@@ -20,6 +20,7 @@ add_executable(${PROJECT_NAME} src/source.cpp
 							   src/Instructions/ASL.h src/Instructions/ASL.cpp
 							   src/Instructions/LSR.h src/Instructions/LSR.cpp
 							   src/Instructions/ROL.h src/Instructions/ROL.cpp
+							   src/Instructions/ROR.h src/Instructions/ROR.cpp
                                src/Instructions/CLC.h src/Instructions/CLC.cpp
                                src/Instructions/SEC.h src/Instructions/SEC.cpp
                                src/Instructions/CLI.h src/Instructions/CLI.cpp

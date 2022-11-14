@@ -92,6 +92,13 @@ Processor::Processor(Memory& memory)
     ids.insert(std::make_pair(ROL_AX, current_id));
     instructions[current_id++] = new E6502_Instructions::ROL();
 
+    ids.insert(std::make_pair(ROR_AC, current_id));
+    ids.insert(std::make_pair(ROR_Z, current_id));
+    ids.insert(std::make_pair(ROR_ZX, current_id));
+    ids.insert(std::make_pair(ROR_A, current_id));
+    ids.insert(std::make_pair(ROR_AX, current_id));
+    instructions[current_id++] = new E6502_Instructions::ROR();
+
     ids.insert(std::make_pair(LDA_I, current_id));
     ids.insert(std::make_pair(LDA_Z, current_id));
     ids.insert(std::make_pair(LDA_ZX, current_id));
