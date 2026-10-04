@@ -1,4 +1,4 @@
-#include <Instructions/DEX.h>
+#include <e6502/Instructions/DEX.h>
 
 using namespace E6502_Instructions;
 

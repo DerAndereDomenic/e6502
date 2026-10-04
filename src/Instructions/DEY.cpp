@@ -1,4 +1,4 @@
-#include <Instructions/DEY.h>
+#include <e6502/Instructions/DEY.h>
 
 using namespace E6502_Instructions;
 

@@ -1,4 +1,4 @@
-#include <Instructions/TSX.h>
+#include <e6502/Instructions/TSX.h>
 
 using namespace E6502_Instructions;
 

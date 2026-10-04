@@ -1,4 +1,4 @@
-#include <Instructions/PHP.h>
+#include <e6502/Instructions/PHP.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

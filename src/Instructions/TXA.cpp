@@ -1,4 +1,4 @@
-#include <Instructions/TXA.h>
+#include <e6502/Instructions/TXA.h>
 
 using namespace E6502_Instructions;
 

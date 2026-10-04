@@ -1,4 +1,4 @@
-#include <Instructions/STX.h>
+#include <e6502/Instructions/STX.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

@@ -1,4 +1,4 @@
-#include <Instructions/INC.h>
+#include <e6502/Instructions/INC.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

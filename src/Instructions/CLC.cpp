@@ -1,4 +1,4 @@
-#include <Instructions/CLC.h>
+#include <e6502/Instructions/CLC.h>
 
 using namespace E6502_Instructions;
 

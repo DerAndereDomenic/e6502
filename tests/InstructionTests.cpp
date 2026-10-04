@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include <Processor/Processor.h>
+#include <e6502/Processor/Processor.h>
 
 using namespace E6502;
 
@@ -322,7 +322,7 @@ TEST(ldaImmediate, ldaImmediate)
 TEST(ldaZeroPage, ldaZeroPage)
 {
     Memory memory;
-    memory[0x3F] = 0x42;
+    memory[0x3F]            = 0x42;
     memory[STACK_START + 1] = LDA_Z;
     memory[STACK_START + 2] = 0x3F;
     Processor processor(memory);
@@ -336,7 +336,7 @@ TEST(ldaZeroX, ldaZeroX)
     Memory memory;
     memory[STACK_START + 1] = LDA_ZX;
     memory[STACK_START + 2] = 0xC0;
-    memory[0xC5] = 0x52;
+    memory[0xC5]            = 0x52;
     Processor processor(memory);
     processor.X = 0x05;
 
@@ -350,7 +350,7 @@ TEST(ldaZeroXWrap, ldaZeroXWrap)
     Memory memory;
     memory[STACK_START + 1] = LDA_ZX;
     memory[STACK_START + 2] = 0xC0;
-    memory[0x20] = 0x52;
+    memory[0x20]            = 0x52;
     Processor processor(memory);
     processor.X = 0x60;
 
@@ -365,7 +365,7 @@ TEST(ldaAbsolute, ldaAbsolute)
     memory[STACK_START + 1] = LDA_A;
     memory[STACK_START + 2] = 0x31;
     memory[STACK_START + 3] = 0xAC;
-    memory[0xAC31] = 0x7F;
+    memory[0xAC31]          = 0x7F;
     Processor processor(memory);
 
     processor.start();
@@ -379,7 +379,7 @@ TEST(ldaAbsoluteX, ldaAbsoluteX)
     memory[STACK_START + 1] = LDA_AX;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0xAC;
-    memory[0xAC39] = 0x7F;
+    memory[0xAC39]          = 0x7F;
     Processor processor(memory);
     processor.X = 0x09;
 
@@ -394,7 +394,7 @@ TEST(ldaAbsoluteY, ldaAbsoluteY)
     memory[STACK_START + 1] = LDA_AY;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0xAC;
-    memory[0xAC39] = 0x7F;
+    memory[0xAC39]          = 0x7F;
     Processor processor(memory);
     processor.Y = 0x09;
 
@@ -408,9 +408,9 @@ TEST(ldaIndirectX, ldaIndirectX)
     Memory memory;
     memory[STACK_START + 1] = LDA_IX;
     memory[STACK_START + 2] = 0x20;
-    memory[0x24] = 0x74;
-    memory[0x25] = 0x20;
-    memory[0x2074] = 0x11;
+    memory[0x24]            = 0x74;
+    memory[0x25]            = 0x20;
+    memory[0x2074]          = 0x11;
     Processor processor(memory);
     processor.X = 0x04;
 
@@ -424,9 +424,9 @@ TEST(ldaIndirectXWrap, ldaIndirectXWrap)
     Memory memory;
     memory[STACK_START + 1] = LDA_IX;
     memory[STACK_START + 2] = 0x20;
-    memory[0x01] = 0x74;
-    memory[0x02] = 0x20;
-    memory[0x2074] = 0x11;
+    memory[0x01]            = 0x74;
+    memory[0x02]            = 0x20;
+    memory[0x2074]          = 0x11;
     Processor processor(memory);
     processor.X = 0xE1;
 
@@ -440,9 +440,9 @@ TEST(ldaIndirectY, ldaIndirectY)
     Memory memory;
     memory[STACK_START + 1] = LDA_IY;
     memory[STACK_START + 2] = 0x86;
-    memory[0x86] = 0x28;
-    memory[0x87] = 0x40;
-    memory[0x4038] = 0xF1;
+    memory[0x86]            = 0x28;
+    memory[0x87]            = 0x40;
+    memory[0x4038]          = 0xF1;
     Processor processor(memory);
     processor.Y = 0x10;
 
@@ -466,7 +466,7 @@ TEST(ldxImmediate, ldxImmediate)
 TEST(ldxZeroPage, ldxZeroPage)
 {
     Memory memory;
-    memory[0x3F] = 0x42;
+    memory[0x3F]            = 0x42;
     memory[STACK_START + 1] = LDX_Z;
     memory[STACK_START + 2] = 0x3F;
     Processor processor(memory);
@@ -480,7 +480,7 @@ TEST(ldxZeroY, ldxZeroY)
     Memory memory;
     memory[STACK_START + 1] = LDX_ZY;
     memory[STACK_START + 2] = 0xC0;
-    memory[0xC5] = 0x52;
+    memory[0xC5]            = 0x52;
     Processor processor(memory);
     processor.Y = 0x05;
 
@@ -494,7 +494,7 @@ TEST(ldxZeroYWrap, ldxZeroYWrap)
     Memory memory;
     memory[STACK_START + 1] = LDX_ZY;
     memory[STACK_START + 2] = 0xC0;
-    memory[0x20] = 0x52;
+    memory[0x20]            = 0x52;
     Processor processor(memory);
     processor.Y = 0x60;
 
@@ -509,7 +509,7 @@ TEST(ldxAbsolute, ldxAbsolute)
     memory[STACK_START + 1] = LDX_A;
     memory[STACK_START + 2] = 0x31;
     memory[STACK_START + 3] = 0xAC;
-    memory[0xAC31] = 0x7F;
+    memory[0xAC31]          = 0x7F;
     Processor processor(memory);
 
     processor.start();
@@ -523,7 +523,7 @@ TEST(ldxAbsoluteY, ldxAbsoluteY)
     memory[STACK_START + 1] = LDX_AY;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0xAC;
-    memory[0xAC39] = 0x7F;
+    memory[0xAC39]          = 0x7F;
     Processor processor(memory);
     processor.Y = 0x09;
 
@@ -546,7 +546,7 @@ TEST(ldyImmediate, ldyImmediate)
 TEST(ldyZeroPage, ldyZeroPage)
 {
     Memory memory;
-    memory[0x3F] = 0x42;
+    memory[0x3F]            = 0x42;
     memory[STACK_START + 1] = LDY_Z;
     memory[STACK_START + 2] = 0x3F;
     Processor processor(memory);
@@ -560,7 +560,7 @@ TEST(ldyZeroY, ldyZeroY)
     Memory memory;
     memory[STACK_START + 1] = LDY_ZX;
     memory[STACK_START + 2] = 0xC0;
-    memory[0xC5] = 0x52;
+    memory[0xC5]            = 0x52;
     Processor processor(memory);
     processor.X = 0x05;
 
@@ -574,7 +574,7 @@ TEST(ldyZeroYWrap, ldyZeroYWrap)
     Memory memory;
     memory[STACK_START + 1] = LDY_ZX;
     memory[STACK_START + 2] = 0xC0;
-    memory[0x20] = 0x52;
+    memory[0x20]            = 0x52;
     Processor processor(memory);
     processor.X = 0x60;
 
@@ -589,7 +589,7 @@ TEST(ldyAbsolute, ldyAbsolute)
     memory[STACK_START + 1] = LDY_A;
     memory[STACK_START + 2] = 0x31;
     memory[STACK_START + 3] = 0xAC;
-    memory[0xAC31] = 0x7F;
+    memory[0xAC31]          = 0x7F;
     Processor processor(memory);
 
     processor.start();
@@ -603,7 +603,7 @@ TEST(ldyAbsoluteY, ldyAbsoluteY)
     memory[STACK_START + 1] = LDY_AX;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0xAC;
-    memory[0xAC39] = 0x7F;
+    memory[0xAC39]          = 0x7F;
     Processor processor(memory);
     processor.X = 0x09;
 
@@ -656,7 +656,7 @@ TEST(adcImmediateNegative, adcImmediateNegative)
 TEST(adcZeroPage, adcZeroPage)
 {
     Memory memory;
-    memory[0x3F] = 20;
+    memory[0x3F]            = 20;
     memory[STACK_START + 1] = ADC_Z;
     memory[STACK_START + 2] = 0x3F;
     Processor processor(memory);
@@ -670,7 +670,7 @@ TEST(adcZeroPage, adcZeroPage)
 TEST(adcZeroPageZero, adcZeroPageZero)
 {
     Memory memory;
-    memory[0x3F] = 20;
+    memory[0x3F]            = 20;
     memory[STACK_START + 1] = ADC_Z;
     memory[STACK_START + 2] = 0x3F;
     Processor processor(memory);
@@ -685,7 +685,7 @@ TEST(adcZeroPageZero, adcZeroPageZero)
 TEST(adcZeroPageNegative, adcZeroPageNegative)
 {
     Memory memory;
-    memory[0x3F] = 20;
+    memory[0x3F]            = 20;
     memory[STACK_START + 1] = ADC_Z;
     memory[STACK_START + 2] = 0x3F;
     Processor processor(memory);
@@ -700,7 +700,7 @@ TEST(adcZeroPageNegative, adcZeroPageNegative)
 TEST(adcZeroPageX, adcZeroPageX)
 {
     Memory memory;
-    memory[0x3F] = 20;
+    memory[0x3F]            = 20;
     memory[STACK_START + 1] = ADC_ZX;
     memory[STACK_START + 2] = 0x30;
     Processor processor(memory);
@@ -715,7 +715,7 @@ TEST(adcZeroPageX, adcZeroPageX)
 TEST(adcZeroPageZeroX, adcZeroPageZeroX)
 {
     Memory memory;
-    memory[0x3F] = 20;
+    memory[0x3F]            = 20;
     memory[STACK_START + 1] = ADC_ZX;
     memory[STACK_START + 2] = 0x30;
     Processor processor(memory);
@@ -731,7 +731,7 @@ TEST(adcZeroPageZeroX, adcZeroPageZeroX)
 TEST(adcZeroPageNegativeX, adcZeroPageNegativeX)
 {
     Memory memory;
-    memory[0x3F] = 20;
+    memory[0x3F]            = 20;
     memory[STACK_START + 1] = ADC_ZX;
     memory[STACK_START + 2] = 0x30;
     Processor processor(memory);
@@ -747,7 +747,7 @@ TEST(adcZeroPageNegativeX, adcZeroPageNegativeX)
 TEST(adcAbsolute, adcAbsolute)
 {
     Memory memory;
-    memory[0x3330] = 20;
+    memory[0x3330]          = 20;
     memory[STACK_START + 1] = ADC_A;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0x33;
@@ -762,7 +762,7 @@ TEST(adcAbsolute, adcAbsolute)
 TEST(adcAbsoluteZero, adcAbsoluteZero)
 {
     Memory memory;
-    memory[0x3330] = 20;
+    memory[0x3330]          = 20;
     memory[STACK_START + 1] = ADC_A;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0x33;
@@ -778,7 +778,7 @@ TEST(adcAbsoluteZero, adcAbsoluteZero)
 TEST(adcAbsoluteNegative, adcAbsoluteNegative)
 {
     Memory memory;
-    memory[0x3330] = 20;
+    memory[0x3330]          = 20;
     memory[STACK_START + 1] = ADC_A;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0x33;
@@ -794,7 +794,7 @@ TEST(adcAbsoluteNegative, adcAbsoluteNegative)
 TEST(adcAbsoluteX, adcAbsoluteX)
 {
     Memory memory;
-    memory[0x3334] = 20;
+    memory[0x3334]          = 20;
     memory[STACK_START + 1] = ADC_AX;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0x33;
@@ -810,7 +810,7 @@ TEST(adcAbsoluteX, adcAbsoluteX)
 TEST(adcAbsoluteXZero, adcAbsoluteXZero)
 {
     Memory memory;
-    memory[0x3334] = 20;
+    memory[0x3334]          = 20;
     memory[STACK_START + 1] = ADC_AX;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0x33;
@@ -827,7 +827,7 @@ TEST(adcAbsoluteXZero, adcAbsoluteXZero)
 TEST(adcAbsoluteXNegative, adcAbsoluteXNegative)
 {
     Memory memory;
-    memory[0x3334] = 20;
+    memory[0x3334]          = 20;
     memory[STACK_START + 1] = ADC_AX;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0x33;
@@ -844,7 +844,7 @@ TEST(adcAbsoluteXNegative, adcAbsoluteXNegative)
 TEST(adcAbsoluteY, adcAbsoluteY)
 {
     Memory memory;
-    memory[0x3334] = 20;
+    memory[0x3334]          = 20;
     memory[STACK_START + 1] = ADC_AY;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0x33;
@@ -860,7 +860,7 @@ TEST(adcAbsoluteY, adcAbsoluteY)
 TEST(adcAbsoluteYZero, adcAbsoluteYZero)
 {
     Memory memory;
-    memory[0x3334] = 20;
+    memory[0x3334]          = 20;
     memory[STACK_START + 1] = ADC_AY;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0x33;
@@ -877,7 +877,7 @@ TEST(adcAbsoluteYZero, adcAbsoluteYZero)
 TEST(adcAbsoluteYNegative, adcAbsoluteYNegative)
 {
     Memory memory;
-    memory[0x3334] = 20;
+    memory[0x3334]          = 20;
     memory[STACK_START + 1] = ADC_AY;
     memory[STACK_START + 2] = 0x30;
     memory[STACK_START + 3] = 0x33;
@@ -896,9 +896,9 @@ TEST(adcIndirectX, adcIndirectX)
     Memory memory;
     memory[STACK_START + 1] = ADC_IX;
     memory[STACK_START + 2] = 0x20;
-    memory[0x24] = 0x74;
-    memory[0x25] = 0x20;
-    memory[0x2074] = 20;
+    memory[0x24]            = 0x74;
+    memory[0x25]            = 0x20;
+    memory[0x2074]          = 20;
     Processor processor(memory);
     processor.A = 42;
     processor.X = 0x04;
@@ -913,9 +913,9 @@ TEST(adcIndirectXWrap, adcIndirectXWrap)
     Memory memory;
     memory[STACK_START + 1] = ADC_IX;
     memory[STACK_START + 2] = 0x20;
-    memory[0x01] = 0x74;
-    memory[0x02] = 0x20;
-    memory[0x2074] = 20;
+    memory[0x01]            = 0x74;
+    memory[0x02]            = 0x20;
+    memory[0x2074]          = 20;
     Processor processor(memory);
     processor.A = 42;
     processor.X = 0xE1;
@@ -930,9 +930,9 @@ TEST(adcIndirectXZero, adcIndirectXZero)
     Memory memory;
     memory[STACK_START + 1] = ADC_IX;
     memory[STACK_START + 2] = 0x20;
-    memory[0x24] = 0x74;
-    memory[0x25] = 0x20;
-    memory[0x2074] = 20;
+    memory[0x24]            = 0x74;
+    memory[0x25]            = 0x20;
+    memory[0x2074]          = 20;
     Processor processor(memory);
     processor.A = -20;
     processor.X = 0x04;
@@ -948,9 +948,9 @@ TEST(adcIndirectXNegative, adcIndirectXNegative)
     Memory memory;
     memory[STACK_START + 1] = ADC_IX;
     memory[STACK_START + 2] = 0x20;
-    memory[0x24] = 0x74;
-    memory[0x25] = 0x20;
-    memory[0x2074] = 20;
+    memory[0x24]            = 0x74;
+    memory[0x25]            = 0x20;
+    memory[0x2074]          = 20;
     Processor processor(memory);
     processor.A = -21;
     processor.X = 0x04;
@@ -966,9 +966,9 @@ TEST(adcIndirectY, adcIndirectY)
     Memory memory;
     memory[STACK_START + 1] = ADC_IY;
     memory[STACK_START + 2] = 0x86;
-    memory[0x86] = 0x28;
-    memory[0x87] = 0x40;
-    memory[0x4038] = 20;
+    memory[0x86]            = 0x28;
+    memory[0x87]            = 0x40;
+    memory[0x4038]          = 20;
     Processor processor(memory);
     processor.A = 42;
     processor.Y = 0x10;
@@ -983,9 +983,9 @@ TEST(adcIndirectYZero, adcIndirectYZero)
     Memory memory;
     memory[STACK_START + 1] = ADC_IY;
     memory[STACK_START + 2] = 0x86;
-    memory[0x86] = 0x28;
-    memory[0x87] = 0x40;
-    memory[0x4038] = 20;
+    memory[0x86]            = 0x28;
+    memory[0x87]            = 0x40;
+    memory[0x4038]          = 20;
     Processor processor(memory);
     processor.A = -20;
     processor.Y = 0x10;
@@ -1001,9 +1001,9 @@ TEST(adcIndirectYNegative, adcIndirectYNegative)
     Memory memory;
     memory[STACK_START + 1] = ADC_IY;
     memory[STACK_START + 2] = 0x86;
-    memory[0x86] = 0x28;
-    memory[0x87] = 0x40;
-    memory[0x4038] = 20;
+    memory[0x86]            = 0x28;
+    memory[0x87]            = 0x40;
+    memory[0x4038]          = 20;
     Processor processor(memory);
     processor.A = -21;
     processor.Y = 0x10;

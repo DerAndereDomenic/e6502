@@ -1,4 +1,4 @@
-#include <Instructions/TXS.h>
+#include <e6502/Instructions/TXS.h>
 
 using namespace E6502_Instructions;
 

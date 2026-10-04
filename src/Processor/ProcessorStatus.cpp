@@ -1,4 +1,4 @@
-#include <Processor/ProcessorStatus.h>
+#include <e6502/Processor/ProcessorStatus.h>
 
 using namespace E6502;
 

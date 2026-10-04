@@ -1,4 +1,4 @@
-#include <Instructions/ORA.h>
+#include <e6502/Instructions/ORA.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

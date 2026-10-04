@@ -1,4 +1,4 @@
-#include <Instructions/TAY.h>
+#include <e6502/Instructions/TAY.h>
 
 using namespace E6502_Instructions;
 

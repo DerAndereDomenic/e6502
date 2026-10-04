@@ -1,4 +1,4 @@
-#include <Instructions/PHA.h>
+#include <e6502/Instructions/PHA.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

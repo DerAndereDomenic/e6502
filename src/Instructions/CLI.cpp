@@ -1,4 +1,4 @@
-#include <Instructions/CLI.h>
+#include <e6502/Instructions/CLI.h>
 
 using namespace E6502_Instructions;
 

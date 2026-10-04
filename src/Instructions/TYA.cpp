@@ -1,4 +1,4 @@
-#include <Instructions/TYA.h>
+#include <e6502/Instructions/TYA.h>
 
 using namespace E6502_Instructions;
 

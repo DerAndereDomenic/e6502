@@ -1,4 +1,4 @@
-#include <Instructions/SEI.h>
+#include <e6502/Instructions/SEI.h>
 
 using namespace E6502_Instructions;
 

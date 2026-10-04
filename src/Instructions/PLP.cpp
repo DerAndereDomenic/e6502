@@ -1,4 +1,4 @@
-#include <Instructions/PLP.h>
+#include <e6502/Instructions/PLP.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

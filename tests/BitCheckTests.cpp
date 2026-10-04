@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <Processor/ProcessorStatus.h>
+#include <e6502/Processor/ProcessorStatus.h>
 
 using namespace E6502;
 
@@ -36,7 +36,7 @@ TEST(negativeFlagPositive, negativeFlagPositive)
     Byte byte = 10;
     status.checkNegative(byte);
 
-    EXPECT_EQ(status.N,0);
+    EXPECT_EQ(status.N, 0);
 }
 
 TEST(negativeFlagNegative, negativeFlagNegative)
@@ -45,7 +45,7 @@ TEST(negativeFlagNegative, negativeFlagNegative)
     Byte byte = -10;
     status.checkNegative(byte);
 
-    EXPECT_EQ(status.N,1);
+    EXPECT_EQ(status.N, 1);
 }
 
 TEST(negativeFlagZero, negativeFlagZero)
@@ -54,7 +54,7 @@ TEST(negativeFlagZero, negativeFlagZero)
     Byte byte = 0;
     status.checkNegative(byte);
 
-    EXPECT_EQ(status.N,0);
+    EXPECT_EQ(status.N, 0);
 }
 
 TEST(negativeFlagOverflow, negativeFlagOverflow)
@@ -63,16 +63,16 @@ TEST(negativeFlagOverflow, negativeFlagOverflow)
     Byte byte = 128;
     status.checkNegative(byte);
 
-    EXPECT_EQ(status.N,1);
+    EXPECT_EQ(status.N, 1);
 }
 
 TEST(negativeFlagUnderflow, negativeFlagUnderflow)
 {
     ProcessorStatus status;
-    int16_t byte = -129;    //Trick compiler to not display overflow warning
+    int16_t byte = -129;    // Trick compiler to not display overflow warning
     status.checkNegative(static_cast<uint8_t>(byte));
 
-    EXPECT_EQ(status.N,0);
+    EXPECT_EQ(status.N, 0);
 }
 
 TEST(carryFlag2Postive, carryFalg2Positive)
@@ -84,7 +84,7 @@ TEST(carryFlag2Postive, carryFalg2Positive)
     Word result = static_cast<Word>(b1) + static_cast<Word>(b2);
     status.checkCarry(result);
 
-    EXPECT_EQ(status.C,0);
+    EXPECT_EQ(status.C, 0);
 }
 
 TEST(carryFlag2Negative, carryFalg2Negative)
@@ -93,11 +93,11 @@ TEST(carryFlag2Negative, carryFalg2Negative)
     Byte b1 = -10;
     Byte b2 = -20;
 
-    //First convert to signed byte and then extend to 16 bits
+    // First convert to signed byte and then extend to 16 bits
     int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
     status.checkCarry(result);
 
-    EXPECT_EQ(status.C,1);
+    EXPECT_EQ(status.C, 1);
 }
 
 TEST(carryFlagPosNeg, carryFlagPosNeg)
@@ -106,11 +106,11 @@ TEST(carryFlagPosNeg, carryFlagPosNeg)
     Byte b1 = 10;
     Byte b2 = -20;
 
-    //First convert to signed byte and then extend to 16 bits
+    // First convert to signed byte and then extend to 16 bits
     int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
     status.checkCarry(result);
 
-    EXPECT_EQ(status.C,0);
+    EXPECT_EQ(status.C, 0);
 }
 
 TEST(carryFlagNegPos, carryFlagNegPos)
@@ -119,11 +119,11 @@ TEST(carryFlagNegPos, carryFlagNegPos)
     Byte b1 = -10;
     Byte b2 = 20;
 
-    //First convert to signed byte and then extend to 16 bits
+    // First convert to signed byte and then extend to 16 bits
     int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
     status.checkCarry(result);
 
-    EXPECT_EQ(status.C,1);
+    EXPECT_EQ(status.C, 1);
 }
 
 TEST(carryFlagOneOne, carryFlagOneOne)
@@ -162,8 +162,8 @@ TEST(carryFlag127One, carryFlag127One)
 TEST(carryFlagNeg127NegOne, carryFlagNeg127NegOne)
 {
     ProcessorStatus status;
-    Byte b1 = -127;
-    Byte b2 = -1;
+    Byte b1        = -127;
+    Byte b2        = -1;
     int16_t result = static_cast<int16_t>(b1) + static_cast<int16_t>(b2);
     status.checkCarry(result);
     EXPECT_EQ(status.C, 1);
@@ -174,7 +174,7 @@ TEST(overflowFlagOneOne, overflowFlagOneOne)
     ProcessorStatus status;
     Byte b1 = 1;
     Byte b2 = 1;
-    status.checkOverflow(b1,b2);
+    status.checkOverflow(b1, b2);
     EXPECT_EQ(status.V, 0);
 }
 
@@ -183,7 +183,7 @@ TEST(overflowFlagOneNegOne, overflowFlagOneNegOne)
     ProcessorStatus status;
     Byte b1 = 1;
     Byte b2 = -1;
-    status.checkOverflow(b1,b2);
+    status.checkOverflow(b1, b2);
     EXPECT_EQ(status.V, 0);
 }
 
@@ -192,7 +192,7 @@ TEST(overflowFlag127One, overflowFlag127One)
     ProcessorStatus status;
     Byte b1 = 127;
     Byte b2 = 1;
-    status.checkOverflow(b1,b2);
+    status.checkOverflow(b1, b2);
     EXPECT_EQ(status.V, 1);
 }
 
@@ -201,7 +201,7 @@ TEST(overflowFlagNeg128NegOne, overflowFlagNeg128NegOne)
     ProcessorStatus status;
     Byte b1 = -128;
     Byte b2 = -1;
-    status.checkOverflow(b1,b2);
+    status.checkOverflow(b1, b2);
     EXPECT_EQ(status.V, 1);
 }
 
@@ -210,7 +210,7 @@ TEST(overflowFlagZeroNegOne, overflowFlagZeroNegOne)
     ProcessorStatus status;
     Byte b1 = 0;
     Byte b2 = -1;
-    status.checkOverflow(b1,b2);
+    status.checkOverflow(b1, b2);
     EXPECT_EQ(status.V, 0);
 }
 
@@ -220,9 +220,9 @@ TEST(overflowFlag2Postive, overflowFlag2Postive)
     Byte b1 = 10;
     Byte b2 = 20;
 
-    status.checkOverflow(b1,b2);
+    status.checkOverflow(b1, b2);
 
-    EXPECT_EQ(status.V,0);
+    EXPECT_EQ(status.V, 0);
 }
 
 TEST(overflowFlag2Negative, overflowFlag2Negative)
@@ -231,9 +231,9 @@ TEST(overflowFlag2Negative, overflowFlag2Negative)
     Byte b1 = -10;
     Byte b2 = -20;
 
-    status.checkOverflow(b1,b2);
+    status.checkOverflow(b1, b2);
 
-    EXPECT_EQ(status.V,0);
+    EXPECT_EQ(status.V, 0);
 }
 
 TEST(overflowFlagPosNeg, overflowFlagPosNeg)
@@ -241,9 +241,9 @@ TEST(overflowFlagPosNeg, overflowFlagPosNeg)
     ProcessorStatus status;
     Byte b1 = 10;
     Byte b2 = -20;
-    status.checkOverflow(b1,b2);
+    status.checkOverflow(b1, b2);
 
-    EXPECT_EQ(status.V,0);
+    EXPECT_EQ(status.V, 0);
 }
 
 TEST(overflowFlagNegPos, overflowFlagNegPos)
@@ -252,7 +252,7 @@ TEST(overflowFlagNegPos, overflowFlagNegPos)
     Byte b1 = -10;
     Byte b2 = 20;
 
-    status.checkOverflow(b1,b2);
+    status.checkOverflow(b1, b2);
 
-    EXPECT_EQ(status.V,0);
+    EXPECT_EQ(status.V, 0);
 }

@@ -1,4 +1,4 @@
-#include <Instructions/LDA.h>
+#include <e6502/Instructions/LDA.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

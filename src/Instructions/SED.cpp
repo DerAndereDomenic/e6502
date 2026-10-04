@@ -1,4 +1,4 @@
-#include <Instructions/SED.h>
+#include <e6502/Instructions/SED.h>
 
 using namespace E6502_Instructions;
 

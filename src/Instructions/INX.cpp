@@ -1,4 +1,4 @@
-#include <Instructions/INX.h>
+#include <e6502/Instructions/INX.h>
 
 using namespace E6502_Instructions;
 

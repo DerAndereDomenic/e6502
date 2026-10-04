@@ -1,4 +1,4 @@
-#include <Instructions/INY.h>
+#include <e6502/Instructions/INY.h>
 
 using namespace E6502_Instructions;
 

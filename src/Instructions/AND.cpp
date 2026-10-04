@@ -1,4 +1,4 @@
-#include <Instructions/AND.h>
+#include <e6502/Instructions/AND.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

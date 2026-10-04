@@ -1,4 +1,4 @@
-#include <Instructions/SEC.h>
+#include <e6502/Instructions/SEC.h>
 
 using namespace E6502_Instructions;
 

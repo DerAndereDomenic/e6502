@@ -1,4 +1,4 @@
-#include <Instructions/TAX.h>
+#include <e6502/Instructions/TAX.h>
 
 using namespace E6502_Instructions;
 

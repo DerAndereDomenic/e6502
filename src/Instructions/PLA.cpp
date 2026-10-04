@@ -1,4 +1,4 @@
-#include <Instructions/PLA.h>
+#include <e6502/Instructions/PLA.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

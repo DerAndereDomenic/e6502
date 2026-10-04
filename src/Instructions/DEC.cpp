@@ -1,4 +1,4 @@
-#include <Instructions/DEC.h>
+#include <e6502/Instructions/DEC.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

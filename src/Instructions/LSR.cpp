@@ -1,4 +1,4 @@
-#include <Instructions/LSR.h>
+#include <e6502/Instructions/LSR.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

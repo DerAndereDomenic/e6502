@@ -1,4 +1,4 @@
-#include <Instructions/LDY.h>
+#include <e6502/Instructions/LDY.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

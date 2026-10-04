@@ -1,4 +1,4 @@
-#include <Memory/Memory.h>
+#include <e6502/Memory/Memory.h>
 #include <iostream>
 
 using namespace E6502;

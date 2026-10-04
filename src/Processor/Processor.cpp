@@ -1,7 +1,7 @@
-#include <Processor/Processor.h>
 #include <assert.h>
 #include <iostream>
-#include <Instructions/Instructions.h>
+#include <e6502/Instructions/Instructions.h>
+#include <e6502/Processor/Processor.h>
 
 using namespace E6502;
 

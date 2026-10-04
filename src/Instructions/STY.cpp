@@ -1,4 +1,4 @@
-#include <Instructions/STY.h>
+#include <e6502/Instructions/STY.h>
 #include <iostream>
 
 using namespace E6502_Instructions;

@@ -1,0 +1,42 @@
+#ifndef __E6502_INSTRUCTIONS_INSTRUCTIONS_H
+#define __E6502_INSTRUCTIONS_INSTRUCTIONS_H
+
+#include <e6502/Instructions/AND.h>
+#include <e6502/Instructions/ADC.h>
+#include <e6502/Instructions/ASL.h>
+#include <e6502/Instructions/LSR.h>
+#include <e6502/Instructions/ROL.h>
+#include <e6502/Instructions/ROR.h>
+#include <e6502/Instructions/EOR.h>
+#include <e6502/Instructions/ORA.h>
+#include <e6502/Instructions/CLC.h>
+#include <e6502/Instructions/SEC.h>
+#include <e6502/Instructions/CLI.h>
+#include <e6502/Instructions/SEI.h>
+#include <e6502/Instructions/CLV.h>
+#include <e6502/Instructions/CLD.h>
+#include <e6502/Instructions/SED.h>
+#include <e6502/Instructions/LDA.h>
+#include <e6502/Instructions/LDX.h>
+#include <e6502/Instructions/LDY.h>
+#include <e6502/Instructions/STA.h>
+#include <e6502/Instructions/STX.h>
+#include <e6502/Instructions/STY.h>
+#include <e6502/Instructions/TAX.h>
+#include <e6502/Instructions/TXA.h>
+#include <e6502/Instructions/DEX.h>
+#include <e6502/Instructions/INX.h>
+#include <e6502/Instructions/TAY.h>
+#include <e6502/Instructions/TYA.h>
+#include <e6502/Instructions/TSX.h>
+#include <e6502/Instructions/TXS.h>
+#include <e6502/Instructions/DEY.h>
+#include <e6502/Instructions/DEC.h>
+#include <e6502/Instructions/INC.h>
+#include <e6502/Instructions/INY.h>
+#include <e6502/Instructions/PHA.h>
+#include <e6502/Instructions/PHP.h>
+#include <e6502/Instructions/PLA.h>
+#include <e6502/Instructions/PLP.h>
+
+#endif
