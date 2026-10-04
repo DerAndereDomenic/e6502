@@ -2,22 +2,19 @@
 
 using namespace E6502;
 
-void 
-ProcessorStatus::checkZero(const Byte& byte)
+void ProcessorStatus::checkZero(const Byte& byte)
 {
     Z = byte == 0;
 }
 
-void 
-ProcessorStatus::checkCarry(const int16_t& word)
+void ProcessorStatus::checkCarry(const int16_t& word)
 {
     C = (word & 0x100) >> 8;
 }
 
-void 
-ProcessorStatus::checkOverflow(const Byte& inp1, const Byte& inp2, const Byte& c)
+void ProcessorStatus::checkOverflow(const Byte& inp1, const Byte& inp2, const Byte& c)
 {
-    Byte result = inp1+inp2+c;
+    Byte result = inp1 + inp2 + c;
     if((inp1 & 0x80) == (inp2 & 0x80))
     {
         if((inp1 & 0x80) == (result & 0x80))
@@ -35,14 +32,12 @@ ProcessorStatus::checkOverflow(const Byte& inp1, const Byte& inp2, const Byte& c
     }
 }
 
-void 
-ProcessorStatus::checkNegative(const Byte& byte)
+void ProcessorStatus::checkNegative(const Byte& byte)
 {
     N = (byte & 0x80) >> 7;
 }
 
-Byte
-ProcessorStatus::asByte()
+Byte ProcessorStatus::asByte()
 {
     Byte result = 0;
 
@@ -58,15 +53,14 @@ ProcessorStatus::asByte()
     return result;
 }
 
-void
-ProcessorStatus::fromByte(const Byte& status)
+void ProcessorStatus::fromByte(const Byte& status)
 {
-    N = (status >> 7) & 0x01;
-    V = (status >> 6) & 0x01;
+    N  = (status >> 7) & 0x01;
+    V  = (status >> 6) & 0x01;
     Z_ = (status >> 5) & 0x01;
-    B = (status >> 4) & 0x01;
-    D = (status >> 3) & 0x01;
-    I = (status >> 2) & 0x01;
-    Z = (status >> 1) & 0x01;
-    C = (status >> 0) & 0x01;
+    B  = (status >> 4) & 0x01;
+    D  = (status >> 3) & 0x01;
+    I  = (status >> 2) & 0x01;
+    Z  = (status >> 1) & 0x01;
+    C  = (status >> 0) & 0x01;
 }

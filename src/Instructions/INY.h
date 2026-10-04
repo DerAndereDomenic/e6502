@@ -5,34 +5,34 @@
 
 namespace E6502_Instructions
 {
-    using namespace E6502;
+using namespace E6502;
+/**
+ *  @brief Increment Y
+ */
+class INY : public Instruction
+{
+public:
     /**
-     *  @brief Increment Y
+     *  @brief The Instruction operator.
+     *  The derived class has to implement this operator based on the operators definition
+     *  and update registers/pointers/Processor status as defined by the operator
+     *  @param PC The program counter
+     *  @param SP The stack pointer
+     *  @param A The A register
+     *  @param X The X register
+     *  @param Y The Y register
+     *  @param processor_status The processor status
+     *  @param memory The memory
      */
-    class INY : public Instruction
-    {
-        public:
-            /**
-             *  @brief The Instruction operator.
-             *  The derived class has to implement this operator based on the operators definition
-             *  and update registers/pointers/Processor status as defined by the operator
-             *  @param PC The program counter
-             *  @param SP The stack pointer
-             *  @param A The A register
-             *  @param X The X register
-             *  @param Y The Y register
-             *  @param processor_status The processor status
-             *  @param memory The memory
-             */
-            void operator()(Word& PC,                            
-                            Byte& SP,                         
-                            Byte& A,                             
-                            Byte& X,                             
-                            Byte& Y,                             
-                            ProcessorStatus& processor_status,
-                            Memory& memory,
-                            AddressingModes& address_mode) override;  
-    };
-}
+    void operator()(Word& PC,
+                    Byte& SP,
+                    Byte& A,
+                    Byte& X,
+                    Byte& Y,
+                    ProcessorStatus& processor_status,
+                    Memory& memory,
+                    AddressingModes& address_mode) override;
+};
+}    // namespace E6502_Instructions
 
 #endif

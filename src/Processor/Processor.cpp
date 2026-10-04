@@ -5,8 +5,7 @@
 
 using namespace E6502;
 
-Processor::Processor(Memory& memory)
-    :memory(memory)
+Processor::Processor(Memory& memory) : memory(memory)
 {
     reset();
 
@@ -210,64 +209,67 @@ Processor::~Processor()
     current_id = 0;
 }
 
-void
-Processor::reset()
+void Processor::reset()
 {
-    //TODO: Reset memory?
-    //The stack is defined from 0x01ff to 0x0100 starting from 0x01ff. Therefore, the 8-Bit Stackpointer is 0xff at the start.
+    // TODO: Reset memory?
+    // The stack is defined from 0x01ff to 0x0100 starting from 0x01ff. Therefore, the 8-Bit Stackpointer is 0xff at the
+    // start.
     SP = 0xFF;
     PC = STACK_START + 1;
 }
 
-void
-Processor::start()
+void Processor::start()
 {
     while(true)
     {
-        //1) Fetch op
+        // 1) Fetch op
         Byte opcode = memory[PC];
-        //Check if BRK
+        // Check if BRK
         if(opcode == 0)
         {
             std::cout << "BRK encountered! Stop execution..." << std::endl;
             return;
         }
-        //2) Increment PC
+        // 2) Increment PC
         ++PC;
-        //3) execute op
+        // 3) execute op
         AddressingModes addressing = static_cast<AddressingModes>((ADDRESS_MASK & opcode) >> 2);
-        auto instruction = ids.find(static_cast<OpCodesAdressed>(opcode));
+        auto instruction           = ids.find(static_cast<OpCodesAdressed>(opcode));
         assert(instruction != ids.end());
-        uint32_t id = instruction->second;
+        uint32_t id     = instruction->second;
         Instruction* op = instructions[id];
         assert(op != nullptr);
-        op->operator()(PC, SP, A, X, Y, processor_status, memory, addressing); 
+        op->operator()(PC, SP, A, X, Y, processor_status, memory, addressing);
     }
 }
 
-void
-Processor::printProcessorStatus()
+void Processor::printProcessorStatus()
 {
-    std::cout << "Program Counter: 0x" << std::hex <<  PC << std::endl;
+    std::cout << "Program Counter: 0x" << std::hex << PC << std::endl;
     std::cout << "Stack Pointer: 0x" << std::hex << SP + (STACK_END) << std::endl;
     std::cout << "Register A: " << static_cast<int32_t>(A) << std::endl;
     std::cout << "Register X: " << static_cast<int32_t>(X) << std::endl;
     std::cout << "Register Y: " << static_cast<int32_t>(Y) << std::endl;
 
-    std::cout << "|" << "C"
-        << "|" << "Z"
-        << "|" << "I"
-        << "|" << "D"
-        << "|" << "B"
-        << "|" << "V"
-        << "|" << "N" << "|" << std::endl;
-    std::cout << "|" << static_cast<int32_t>(processor_status.C)
-        << "|" << static_cast<int32_t>(processor_status.Z)
-        << "|" << static_cast<int32_t>(processor_status.I)
-        << "|" << static_cast<int32_t>(processor_status.D)
-        << "|" << static_cast<int32_t>(processor_status.B)
-        << "|" << static_cast<int32_t>(processor_status.V)
-        << "|" << static_cast<int32_t>(processor_status.N) << "|" << std::dec << std::endl;
+    std::cout << "|"
+              << "C"
+              << "|"
+              << "Z"
+              << "|"
+              << "I"
+              << "|"
+              << "D"
+              << "|"
+              << "B"
+              << "|"
+              << "V"
+              << "|"
+              << "N"
+              << "|" << std::endl;
+    std::cout << "|" << static_cast<int32_t>(processor_status.C) << "|" << static_cast<int32_t>(processor_status.Z)
+              << "|" << static_cast<int32_t>(processor_status.I) << "|" << static_cast<int32_t>(processor_status.D)
+              << "|" << static_cast<int32_t>(processor_status.B) << "|" << static_cast<int32_t>(processor_status.V)
+              << "|" << static_cast<int32_t>(processor_status.N) << "|" << std::dec << std::endl;
 
     memory.print();
 }

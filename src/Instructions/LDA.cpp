@@ -3,54 +3,53 @@
 
 using namespace E6502_Instructions;
 
-void 
-LDA::operator()(Word& PC,                            
-                Byte& SP,                         
-                Byte& A,                             
-                Byte& X,                             
-                Byte& Y,                             
-                ProcessorStatus& processor_status,
-                Memory& memory,
-                AddressingModes& address_mode)
+void LDA::operator()(Word& PC,
+                     Byte& SP,
+                     Byte& A,
+                     Byte& X,
+                     Byte& Y,
+                     ProcessorStatus& processor_status,
+                     Memory& memory,
+                     AddressingModes& address_mode)
 {
     switch(address_mode)
     {
         case ZERO_PAGE_X_INDIRECT_01:
         {
             Byte address = memory[PC] + X;
-            Byte data = memory[memory(address)];
-            A = data;
+            Byte data    = memory[memory(address)];
+            A            = data;
             ++PC;
         }
         break;
         case ZERO_PAGE_01:
         {
             Byte address = memory[PC];
-            Byte data = memory[address];
-            A = data;
+            Byte data    = memory[address];
+            A            = data;
             ++PC;
         }
         break;
         case IMMEDIATE_01:
         {
             Byte data = memory[PC];
-            A = data;
+            A         = data;
             ++PC;
         }
         break;
         case ABSOLUTE_01:
         {
             Word address = memory(PC);
-            Byte data = memory[address];
-            A = data;
-            PC+=2;
+            Byte data    = memory[address];
+            A            = data;
+            PC += 2;
         }
         break;
         case ZERO_PAGE_Y_INDIRECT_01:
         {
             Byte address = memory[PC];
-            Byte data = memory[memory(address)+Y];
-            A = data;
+            Byte data    = memory[memory(address) + Y];
+            A            = data;
             ++PC;
         }
         break;
@@ -59,7 +58,7 @@ LDA::operator()(Word& PC,
             Byte address = memory(PC);
             address += X;
             Byte data = memory[address];
-            A = data;
+            A         = data;
             ++PC;
         }
         break;
@@ -68,8 +67,8 @@ LDA::operator()(Word& PC,
             Word address = memory(PC);
             address += Y;
             Byte data = memory[address];
-            A = data;
-            PC+=2;
+            A         = data;
+            PC += 2;
         }
         break;
         case ABSOLUTE_X_01:
@@ -77,8 +76,8 @@ LDA::operator()(Word& PC,
             Word address = memory(PC);
             address += X;
             Byte data = memory[address];
-            A = data;
-            PC+=2;
+            A         = data;
+            PC += 2;
         }
         break;
     }

@@ -3,23 +3,22 @@
 
 using namespace E6502_Instructions;
 
-void
-ASL::operator()(Word& PC,
-                Byte& SP,
-                Byte& A,
-                Byte& X,
-                Byte& Y,
-                ProcessorStatus& processor_status,
-                Memory& memory,
-                AddressingModes& address_mode)
+void ASL::operator()(Word& PC,
+                     Byte& SP,
+                     Byte& A,
+                     Byte& X,
+                     Byte& Y,
+                     ProcessorStatus& processor_status,
+                     Memory& memory,
+                     AddressingModes& address_mode)
 {
-    switch (address_mode)
+    switch(address_mode)
     {
         case ZERO_PAGE_10:
         {
-            Byte address = memory[PC];
-            Word val = memory[address];
-            val = val << 1;
+            Byte address    = memory[PC];
+            Word val        = memory[address];
+            val             = val << 1;
             memory[address] = val;
 
             ++PC;
@@ -30,9 +29,9 @@ ASL::operator()(Word& PC,
         break;
         case ABSOLUTE_10:
         {
-            Word address = memory(PC);
-            Word val = memory[address];
-            val = val << 1;
+            Word address    = memory(PC);
+            Word val        = memory[address];
+            val             = val << 1;
             memory[address] = val;
             PC += 2;
             processor_status.checkCarry(val);
@@ -44,8 +43,8 @@ ASL::operator()(Word& PC,
         {
             Byte address = memory(PC);
             address += X;
-            Word val = memory[address];
-            val = val << 1;
+            Word val        = memory[address];
+            val             = val << 1;
             memory[address] = val;
             ++PC;
             processor_status.checkCarry(val);
@@ -57,8 +56,8 @@ ASL::operator()(Word& PC,
         {
             Word address = memory(PC);
             address += X;
-            Word val = memory[address];
-            val = val << 1;
+            Word val        = memory[address];
+            val             = val << 1;
             memory[address] = val;
             PC += 2;
             processor_status.checkCarry(val);
@@ -69,8 +68,8 @@ ASL::operator()(Word& PC,
         case ACCUMULATOR_10:
         {
             Word val = A;
-            val = val << 1;
-            A = val;
+            val      = val << 1;
+            A        = val;
             processor_status.checkCarry(val);
             processor_status.checkNegative(A);
             processor_status.checkZero(A);
