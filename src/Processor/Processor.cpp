@@ -386,6 +386,12 @@ void Processor::_applyInstruction(const OpCodesAdressed& op_code, AddressingMode
         }
         break;
 
+        case NOP:
+        {
+            E6502_Instructions::NOP::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
         default:
         {
             std::cout << "Unknown opcode: 0x" << std::hex << static_cast<int32_t>(op_code) << std::endl;
