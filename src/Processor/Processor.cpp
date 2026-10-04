@@ -392,6 +392,19 @@ void Processor::_applyInstruction(const OpCodesAdressed& op_code, AddressingMode
         }
         break;
 
+        case SBC_I:
+        case SBC_Z:
+        case SBC_ZX:
+        case SBC_A:
+        case SBC_AX:
+        case SBC_AY:
+        case SBC_IX:
+        case SBC_IY:
+        {
+            E6502_Instructions::SBC::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
         default:
         {
             std::cout << "Unknown opcode: 0x" << std::hex << static_cast<int32_t>(op_code) << std::endl;

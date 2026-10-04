@@ -40,5 +40,6 @@
 #include <e6502/Instructions/PLP.h>
 #include <e6502/Instructions/JMP.h>
 #include <e6502/Instructions/NOP.h>
+#include <e6502/Instructions/SBC.h>
 
 #endif
