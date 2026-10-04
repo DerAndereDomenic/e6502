@@ -3,14 +3,14 @@
 
 using namespace E6502_Instructions;
 
-void ASL::operator()(Word& PC,
-                     Byte& SP,
-                     Byte& A,
-                     Byte& X,
-                     Byte& Y,
-                     ProcessorStatus& processor_status,
-                     Memory& memory,
-                     AddressingModes& address_mode)
+void ASL::apply(Word& PC,
+                Byte& SP,
+                Byte& A,
+                Byte& X,
+                Byte& Y,
+                ProcessorStatus& processor_status,
+                Memory& memory,
+                AddressingModes& address_mode)
 {
     switch(address_mode)
     {

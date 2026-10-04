@@ -3,14 +3,14 @@
 
 using namespace E6502_Instructions;
 
-void ORA::operator()(Word& PC,
-                     Byte& SP,
-                     Byte& A,
-                     Byte& X,
-                     Byte& Y,
-                     ProcessorStatus& processor_status,
-                     Memory& memory,
-                     AddressingModes& address_mode)
+void ORA::apply(Word& PC,
+                Byte& SP,
+                Byte& A,
+                Byte& X,
+                Byte& Y,
+                ProcessorStatus& processor_status,
+                Memory& memory,
+                AddressingModes& address_mode)
 {
     Byte op1 = A;
     Byte op2 = 0;

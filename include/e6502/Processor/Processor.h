@@ -5,7 +5,10 @@
 #include <e6502/Processor/ProcessorStatus.h>
 #include <e6502/Processor/OpCodes.h>
 #include <e6502/Memory/Memory.h>
-#include <e6502/Instructions/Instruction.h>
+#include <e6502/Core/Defines.h>
+#include <e6502/Processor/ProcessorStatus.h>
+#include <e6502/Memory/Memory.h>
+#include <e6502/Processor/OpCodes.h>
 #include <unordered_map>
 
 namespace E6502
@@ -31,6 +34,10 @@ public:
      *  @brief Print the current processor status
      */
     void printProcessorStatus();
+
+private:
+    void _applyInstruction(const OpCodesAdressed& op_code, AddressingModes& addressing_mode);
+
     // private:
     Word PC;                          /**< Program Counter */
     Byte SP;                          /**< Stack Pointer */
@@ -40,12 +47,7 @@ public:
     ProcessorStatus processor_status; /**< The processor status */
     Memory memory;                    /**< The memory the processor is working with */
 
-    Instruction* instructions[PAGE_SIZE] = {
-        nullptr,
-    }; /**< Array of alle instructions */
-
     uint32_t current_id = 0;
-    std::unordered_map<OpCodesAdressed, uint32_t> ids;
 };
 }    // namespace E6502
 

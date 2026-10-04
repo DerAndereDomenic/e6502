@@ -1,7 +1,10 @@
 #ifndef __E6502_INSTRUCTIONS_LDX_H
 #define __E6502_INSTRUCTIONS_LDX_H
 
-#include <e6502/Instructions/Instruction.h>
+#include <e6502/Core/Defines.h>
+#include <e6502/Processor/ProcessorStatus.h>
+#include <e6502/Memory/Memory.h>
+#include <e6502/Processor/OpCodes.h>
 
 namespace E6502_Instructions
 {
@@ -9,7 +12,7 @@ using namespace E6502;
 /**
  *  @brief LDA operation
  */
-class LDX : public Instruction
+class LDX
 {
 public:
     /**
@@ -25,14 +28,14 @@ public:
      *  @param memory The memory
      *  @param address_mode The addressing mode
      */
-    void operator()(Word& PC,
-                    Byte& SP,
-                    Byte& A,
-                    Byte& X,
-                    Byte& Y,
-                    ProcessorStatus& processor_status,
-                    Memory& memory,
-                    AddressingModes& address_mode) override;
+    static void apply(Word& PC,
+                      Byte& SP,
+                      Byte& A,
+                      Byte& X,
+                      Byte& Y,
+                      ProcessorStatus& processor_status,
+                      Memory& memory,
+                      AddressingModes& address_mode);
 };
 }    // namespace E6502_Instructions
 

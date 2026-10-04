@@ -8,206 +8,9 @@ using namespace E6502;
 Processor::Processor(Memory& memory) : memory(memory)
 {
     reset();
-
-    ids.insert(std::make_pair(CLC, current_id));
-    instructions[current_id++] = new E6502_Instructions::CLC();
-
-    ids.insert(std::make_pair(SEC, current_id));
-    instructions[current_id++] = new E6502_Instructions::SEC();
-
-    ids.insert(std::make_pair(CLI, current_id));
-    instructions[current_id++] = new E6502_Instructions::CLI();
-
-    ids.insert(std::make_pair(SEI, current_id));
-    instructions[current_id++] = new E6502_Instructions::SEI();
-
-    ids.insert(std::make_pair(CLV, current_id));
-    instructions[current_id++] = new E6502_Instructions::CLV();
-
-    ids.insert(std::make_pair(CLD, current_id));
-    instructions[current_id++] = new E6502_Instructions::CLD();
-
-    ids.insert(std::make_pair(SED, current_id));
-    instructions[current_id++] = new E6502_Instructions::SED();
-
-    ids.insert(std::make_pair(ADC_I, current_id));
-    ids.insert(std::make_pair(ADC_Z, current_id));
-    ids.insert(std::make_pair(ADC_ZX, current_id));
-    ids.insert(std::make_pair(ADC_A, current_id));
-    ids.insert(std::make_pair(ADC_AX, current_id));
-    ids.insert(std::make_pair(ADC_AY, current_id));
-    ids.insert(std::make_pair(ADC_IX, current_id));
-    ids.insert(std::make_pair(ADC_IY, current_id));
-    instructions[current_id++] = new E6502_Instructions::ADC();
-
-    ids.insert(std::make_pair(AND_I, current_id));
-    ids.insert(std::make_pair(AND_Z, current_id));
-    ids.insert(std::make_pair(AND_ZX, current_id));
-    ids.insert(std::make_pair(AND_A, current_id));
-    ids.insert(std::make_pair(AND_AX, current_id));
-    ids.insert(std::make_pair(AND_AY, current_id));
-    ids.insert(std::make_pair(AND_IX, current_id));
-    ids.insert(std::make_pair(AND_IY, current_id));
-    instructions[current_id++] = new E6502_Instructions::AND();
-
-    ids.insert(std::make_pair(EOR_I, current_id));
-    ids.insert(std::make_pair(EOR_Z, current_id));
-    ids.insert(std::make_pair(EOR_ZX, current_id));
-    ids.insert(std::make_pair(EOR_A, current_id));
-    ids.insert(std::make_pair(EOR_AX, current_id));
-    ids.insert(std::make_pair(EOR_AY, current_id));
-    ids.insert(std::make_pair(EOR_IX, current_id));
-    ids.insert(std::make_pair(EOR_IY, current_id));
-    instructions[current_id++] = new E6502_Instructions::EOR();
-
-    ids.insert(std::make_pair(ORA_I, current_id));
-    ids.insert(std::make_pair(ORA_Z, current_id));
-    ids.insert(std::make_pair(ORA_ZX, current_id));
-    ids.insert(std::make_pair(ORA_A, current_id));
-    ids.insert(std::make_pair(ORA_AX, current_id));
-    ids.insert(std::make_pair(ORA_AY, current_id));
-    ids.insert(std::make_pair(ORA_IX, current_id));
-    ids.insert(std::make_pair(ORA_IY, current_id));
-    instructions[current_id++] = new E6502_Instructions::ORA();
-
-    ids.insert(std::make_pair(ASL_AC, current_id));
-    ids.insert(std::make_pair(ASL_Z, current_id));
-    ids.insert(std::make_pair(ASL_ZX, current_id));
-    ids.insert(std::make_pair(ASL_A, current_id));
-    ids.insert(std::make_pair(ASL_AX, current_id));
-    instructions[current_id++] = new E6502_Instructions::ASL();
-
-    ids.insert(std::make_pair(LSR_AC, current_id));
-    ids.insert(std::make_pair(LSR_Z, current_id));
-    ids.insert(std::make_pair(LSR_ZX, current_id));
-    ids.insert(std::make_pair(LSR_A, current_id));
-    ids.insert(std::make_pair(LSR_AX, current_id));
-    instructions[current_id++] = new E6502_Instructions::LSR();
-
-    ids.insert(std::make_pair(ROL_AC, current_id));
-    ids.insert(std::make_pair(ROL_Z, current_id));
-    ids.insert(std::make_pair(ROL_ZX, current_id));
-    ids.insert(std::make_pair(ROL_A, current_id));
-    ids.insert(std::make_pair(ROL_AX, current_id));
-    instructions[current_id++] = new E6502_Instructions::ROL();
-
-    ids.insert(std::make_pair(ROR_AC, current_id));
-    ids.insert(std::make_pair(ROR_Z, current_id));
-    ids.insert(std::make_pair(ROR_ZX, current_id));
-    ids.insert(std::make_pair(ROR_A, current_id));
-    ids.insert(std::make_pair(ROR_AX, current_id));
-    instructions[current_id++] = new E6502_Instructions::ROR();
-
-    ids.insert(std::make_pair(LDA_I, current_id));
-    ids.insert(std::make_pair(LDA_Z, current_id));
-    ids.insert(std::make_pair(LDA_ZX, current_id));
-    ids.insert(std::make_pair(LDA_A, current_id));
-    ids.insert(std::make_pair(LDA_AX, current_id));
-    ids.insert(std::make_pair(LDA_AY, current_id));
-    ids.insert(std::make_pair(LDA_IX, current_id));
-    ids.insert(std::make_pair(LDA_IY, current_id));
-    instructions[current_id++] = new E6502_Instructions::LDA();
-
-    ids.insert(std::make_pair(STA_Z, current_id));
-    ids.insert(std::make_pair(STA_ZX, current_id));
-    ids.insert(std::make_pair(STA_A, current_id));
-    ids.insert(std::make_pair(STA_AX, current_id));
-    ids.insert(std::make_pair(STA_AY, current_id));
-    ids.insert(std::make_pair(STA_IX, current_id));
-    ids.insert(std::make_pair(STA_IY, current_id));
-    instructions[current_id++] = new E6502_Instructions::STA();
-
-    ids.insert(std::make_pair(LDX_I, current_id));
-    ids.insert(std::make_pair(LDX_Z, current_id));
-    ids.insert(std::make_pair(LDX_ZY, current_id));
-    ids.insert(std::make_pair(LDX_A, current_id));
-    ids.insert(std::make_pair(LDX_AY, current_id));
-    instructions[current_id++] = new E6502_Instructions::LDX();
-
-    ids.insert(std::make_pair(STX_Z, current_id));
-    ids.insert(std::make_pair(STX_ZY, current_id));
-    ids.insert(std::make_pair(STX_A, current_id));
-    instructions[current_id++] = new E6502_Instructions::STX();
-
-    ids.insert(std::make_pair(LDY_I, current_id));
-    ids.insert(std::make_pair(LDY_Z, current_id));
-    ids.insert(std::make_pair(LDY_ZX, current_id));
-    ids.insert(std::make_pair(LDY_A, current_id));
-    ids.insert(std::make_pair(LDY_AX, current_id));
-    instructions[current_id++] = new E6502_Instructions::LDY();
-
-    ids.insert(std::make_pair(STY_Z, current_id));
-    ids.insert(std::make_pair(STY_ZX, current_id));
-    ids.insert(std::make_pair(STY_A, current_id));
-    instructions[current_id++] = new E6502_Instructions::STY();
-
-    ids.insert(std::make_pair(DEC_Z, current_id));
-    ids.insert(std::make_pair(DEC_ZX, current_id));
-    ids.insert(std::make_pair(DEC_A, current_id));
-    ids.insert(std::make_pair(DEC_AX, current_id));
-    instructions[current_id++] = new E6502_Instructions::DEC();
-
-    ids.insert(std::make_pair(INC_Z, current_id));
-    ids.insert(std::make_pair(INC_ZX, current_id));
-    ids.insert(std::make_pair(INC_A, current_id));
-    ids.insert(std::make_pair(INC_AX, current_id));
-    instructions[current_id++] = new E6502_Instructions::INC();
-
-    ids.insert(std::make_pair(TAX, current_id));
-    instructions[current_id++] = new E6502_Instructions::TAX();
-
-    ids.insert(std::make_pair(TXA, current_id));
-    instructions[current_id++] = new E6502_Instructions::TXA();
-
-    ids.insert(std::make_pair(DEX, current_id));
-    instructions[current_id++] = new E6502_Instructions::DEX();
-
-    ids.insert(std::make_pair(INX, current_id));
-    instructions[current_id++] = new E6502_Instructions::INX();
-
-    ids.insert(std::make_pair(TAY, current_id));
-    instructions[current_id++] = new E6502_Instructions::TAY();
-
-    ids.insert(std::make_pair(TSX, current_id));
-    instructions[current_id++] = new E6502_Instructions::TSX();
-
-    ids.insert(std::make_pair(TXS, current_id));
-    instructions[current_id++] = new E6502_Instructions::TXS();
-
-    ids.insert(std::make_pair(DEY, current_id));
-    instructions[current_id++] = new E6502_Instructions::DEY();
-
-    ids.insert(std::make_pair(INY, current_id));
-    instructions[current_id++] = new E6502_Instructions::INY();
-
-    ids.insert(std::make_pair(TYA, current_id));
-    instructions[current_id++] = new E6502_Instructions::TYA();
-
-    ids.insert(std::make_pair(PHA, current_id));
-    instructions[current_id++] = new E6502_Instructions::PHA();
-
-    ids.insert(std::make_pair(PHP, current_id));
-    instructions[current_id++] = new E6502_Instructions::PHP();
-
-    ids.insert(std::make_pair(PLA, current_id));
-    instructions[current_id++] = new E6502_Instructions::PLA();
-
-    ids.insert(std::make_pair(PLP, current_id));
-    instructions[current_id++] = new E6502_Instructions::PLP();
 }
 
-Processor::~Processor()
-{
-    for(uint32_t i = 0; i < PAGE_SIZE; ++i)
-    {
-        if(instructions[i] != nullptr)
-        {
-            delete instructions[i];
-        }
-    }
-    ids.clear();
-    current_id = 0;
-}
+Processor::~Processor() {}
 
 void Processor::reset()
 {
@@ -234,12 +37,8 @@ void Processor::start()
         ++PC;
         // 3) execute op
         AddressingModes addressing = static_cast<AddressingModes>((ADDRESS_MASK & opcode) >> 2);
-        auto instruction           = ids.find(static_cast<OpCodesAdressed>(opcode));
-        assert(instruction != ids.end());
-        uint32_t id     = instruction->second;
-        Instruction* op = instructions[id];
-        assert(op != nullptr);
-        op->operator()(PC, SP, A, X, Y, processor_status, memory, addressing);
+
+        _applyInstruction(static_cast<OpCodesAdressed>(opcode), addressing);
     }
 }
 
@@ -272,4 +71,313 @@ void Processor::printProcessorStatus()
               << "|" << static_cast<int32_t>(processor_status.N) << "|" << std::dec << std::endl;
 
     memory.print();
+}
+
+void Processor::_applyInstruction(const OpCodesAdressed& op_code, AddressingModes& addressing_mode)
+{
+    switch(op_code)
+    {
+        case CLC:
+        {
+            E6502_Instructions::CLC::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case SEC:
+        {
+            E6502_Instructions::SEC::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case CLI:
+        {
+            E6502_Instructions::CLI::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case SEI:
+        {
+            E6502_Instructions::SEI::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case CLV:
+        {
+            E6502_Instructions::CLV::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case CLD:
+        {
+            E6502_Instructions::CLD::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case SED:
+        {
+            E6502_Instructions::SED::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case ADC_I:
+        case ADC_Z:
+        case ADC_ZX:
+        case ADC_A:
+        case ADC_AX:
+        case ADC_AY:
+        case ADC_IX:
+        case ADC_IY:
+        {
+            E6502_Instructions::ADC::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case AND_I:
+        case AND_Z:
+        case AND_ZX:
+        case AND_A:
+        case AND_AX:
+        case AND_AY:
+        case AND_IX:
+        case AND_IY:
+        {
+            E6502_Instructions::AND::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case EOR_I:
+        case EOR_Z:
+        case EOR_ZX:
+        case EOR_A:
+        case EOR_AX:
+        case EOR_AY:
+        case EOR_IX:
+        case EOR_IY:
+        {
+            E6502_Instructions::EOR::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case ORA_I:
+        case ORA_Z:
+        case ORA_ZX:
+        case ORA_A:
+        case ORA_AX:
+        case ORA_AY:
+        case ORA_IX:
+        case ORA_IY:
+        {
+            E6502_Instructions::ORA::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case ASL_AC:
+        case ASL_Z:
+        case ASL_ZX:
+        case ASL_A:
+        case ASL_AX:
+        {
+            E6502_Instructions::ASL::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case LSR_AC:
+        case LSR_Z:
+        case LSR_ZX:
+        case LSR_A:
+        case LSR_AX:
+        {
+            E6502_Instructions::LSR::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case ROL_AC:
+        case ROL_Z:
+        case ROL_ZX:
+        case ROL_A:
+        case ROL_AX:
+        {
+            E6502_Instructions::ROL::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case ROR_AC:
+        case ROR_Z:
+        case ROR_ZX:
+        case ROR_A:
+        case ROR_AX:
+        {
+            E6502_Instructions::ROR::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case LDA_I:
+        case LDA_Z:
+        case LDA_ZX:
+        case LDA_A:
+        case LDA_AX:
+        case LDA_AY:
+        case LDA_IX:
+        case LDA_IY:
+        {
+            E6502_Instructions::LDA::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case STA_Z:
+        case STA_ZX:
+        case STA_A:
+        case STA_AX:
+        case STA_AY:
+        case STA_IX:
+        case STA_IY:
+        {
+            E6502_Instructions::STA::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case LDX_I:
+        case LDX_Z:
+        case LDX_ZY:
+        case LDX_A:
+        case LDX_AY:
+        {
+            E6502_Instructions::LDX::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case STX_Z:
+        case STX_ZY:
+        case STX_A:
+        {
+            E6502_Instructions::STX::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case LDY_I:
+        case LDY_Z:
+        case LDY_ZX:
+        case LDY_A:
+        case LDY_AX:
+        {
+            E6502_Instructions::LDY::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case STY_Z:
+        case STY_ZX:
+        case STY_A:
+        {
+            E6502_Instructions::STY::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case DEC_Z:
+        case DEC_ZX:
+        case DEC_A:
+        case DEC_AX:
+        {
+            E6502_Instructions::DEC::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case INC_Z:
+        case INC_ZX:
+        case INC_A:
+        case INC_AX:
+        {
+            E6502_Instructions::INC::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case TAX:
+        {
+            E6502_Instructions::TAX::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case TXA:
+        {
+            E6502_Instructions::TXA::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case DEX:
+        {
+            E6502_Instructions::DEX::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case INX:
+        {
+            E6502_Instructions::INX::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case TAY:
+        {
+            E6502_Instructions::TAY::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case TSX:
+        {
+            E6502_Instructions::TSX::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case TXS:
+        {
+            E6502_Instructions::TXS::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case DEY:
+        {
+            E6502_Instructions::DEY::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case INY:
+        {
+            E6502_Instructions::INY::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case TYA:
+        {
+            E6502_Instructions::TYA::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case PHA:
+        {
+            E6502_Instructions::PHA::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case PHP:
+        {
+            E6502_Instructions::PHP::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case PLA:
+        {
+            E6502_Instructions::PLA::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case PLP:
+        {
+            E6502_Instructions::PLP::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+        default:
+        {
+            std::cout << "Unknown opcode: 0x" << std::hex << static_cast<int32_t>(op_code) << std::endl;
+            assert(false);
+        }
+        break;
+    }
 }

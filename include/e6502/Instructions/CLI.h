@@ -1,7 +1,10 @@
 #ifndef __E6502_INSTRUCTIONS_CLI_H
 #define __E6502_INSTRUCTIONS_CLI_H
 
-#include <e6502/Instructions/Instruction.h>
+#include <e6502/Core/Defines.h>
+#include <e6502/Processor/ProcessorStatus.h>
+#include <e6502/Memory/Memory.h>
+#include <e6502/Processor/OpCodes.h>
 
 namespace E6502_Instructions
 {
@@ -9,7 +12,7 @@ using namespace E6502;
 /**
  *  @brief Clear Interrupt
  */
-class CLI : public Instruction
+class CLI
 {
 public:
     /**
@@ -24,14 +27,14 @@ public:
      *  @param processor_status The processor status
      *  @param memory The memory
      */
-    void operator()(Word& PC,
-                    Byte& SP,
-                    Byte& A,
-                    Byte& X,
-                    Byte& Y,
-                    ProcessorStatus& processor_status,
-                    Memory& memory,
-                    AddressingModes& address_mode) override;
+    static void apply(Word& PC,
+                      Byte& SP,
+                      Byte& A,
+                      Byte& X,
+                      Byte& Y,
+                      ProcessorStatus& processor_status,
+                      Memory& memory,
+                      AddressingModes& address_mode);
 };
 }    // namespace E6502_Instructions
 
