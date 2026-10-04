@@ -41,5 +41,7 @@
 #include <e6502/Instructions/JMP.h>
 #include <e6502/Instructions/NOP.h>
 #include <e6502/Instructions/SBC.h>
+#include <e6502/Instructions/JSR.h>
+#include <e6502/Instructions/RTS.h>
 
 #endif

@@ -392,6 +392,18 @@ void Processor::_applyInstruction(const OpCodesAdressed& op_code, AddressingMode
         }
         break;
 
+        case JSR_A:
+        {
+            E6502_Instructions::JSR::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case RTS:
+        {
+            E6502_Instructions::RTS::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
         case SBC_I:
         case SBC_Z:
         case SBC_ZX:
