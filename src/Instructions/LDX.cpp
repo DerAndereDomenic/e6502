@@ -40,7 +40,7 @@ void LDX::operator()(Word& PC,
         // Here is an exception because we are loading X but using Y to address (?)
         case ZERO_PAGE_X_10:
         {
-            Byte address = memory(PC);
+            Byte address = memory[PC];
             address += Y;
             Byte data = memory[address];
             X         = data;

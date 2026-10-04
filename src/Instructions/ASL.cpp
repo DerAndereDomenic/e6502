@@ -19,7 +19,7 @@ void ASL::operator()(Word& PC,
             Byte address    = memory[PC];
             Word val        = memory[address];
             val             = val << 1;
-            memory[address] = val;
+            memory[address] = (Byte)val;
 
             ++PC;
             processor_status.checkCarry(val);
@@ -32,7 +32,7 @@ void ASL::operator()(Word& PC,
             Word address    = memory(PC);
             Word val        = memory[address];
             val             = val << 1;
-            memory[address] = val;
+            memory[address] = (Byte)val;
             PC += 2;
             processor_status.checkCarry(val);
             processor_status.checkNegative(memory[address]);
@@ -41,11 +41,11 @@ void ASL::operator()(Word& PC,
         break;
         case ZERO_PAGE_X_10:
         {
-            Byte address = memory(PC);
+            Byte address = memory[PC];
             address += X;
             Word val        = memory[address];
             val             = val << 1;
-            memory[address] = val;
+            memory[address] = (Byte)val;
             ++PC;
             processor_status.checkCarry(val);
             processor_status.checkNegative(memory[address]);
@@ -58,7 +58,7 @@ void ASL::operator()(Word& PC,
             address += X;
             Word val        = memory[address];
             val             = val << 1;
-            memory[address] = val;
+            memory[address] = (Byte)val;
             PC += 2;
             processor_status.checkCarry(val);
             processor_status.checkNegative(memory[address]);
@@ -69,7 +69,7 @@ void ASL::operator()(Word& PC,
         {
             Word val = A;
             val      = val << 1;
-            A        = val;
+            A        = (Byte)val;
             processor_status.checkCarry(val);
             processor_status.checkNegative(A);
             processor_status.checkZero(A);

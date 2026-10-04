@@ -41,7 +41,7 @@ void ROL::operator()(Word& PC,
         break;
         case ZERO_PAGE_X_10:
         {
-            Byte address = memory(PC);
+            Byte address = memory[PC];
             address += X;
             Byte val           = memory[address];
             processor_status.C = (val & 0x80) >> 7;

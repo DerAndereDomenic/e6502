@@ -52,7 +52,7 @@ void EOR::operator()(Word& PC,
         break;
         case ZERO_PAGE_X_01:
         {
-            Byte address = memory(PC);
+            Byte address = memory[PC];
             address += X;
             op2 = memory[address];
             ++PC;
@@ -77,7 +77,7 @@ void EOR::operator()(Word& PC,
     }
 
     Word result = op1 ^ op2;
-    A           = result;
+    A           = (Byte)result;
 
     processor_status.checkZero(A);
     processor_status.checkNegative(A);

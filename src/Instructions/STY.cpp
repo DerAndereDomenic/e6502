@@ -30,7 +30,7 @@ void STY::operator()(Word& PC,
         break;
         case ZERO_PAGE_X_10:
         {
-            Byte address = memory(PC);
+            Byte address = memory[PC];
             address += X;
             memory[address] = Y;
             ++PC;

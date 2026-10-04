@@ -44,7 +44,7 @@ void STA::operator()(Word& PC,
         break;
         case ZERO_PAGE_X_01:
         {
-            Byte address = memory(PC);
+            Byte address = memory[PC];
             address += X;
             memory[address] = A;
             ++PC;
