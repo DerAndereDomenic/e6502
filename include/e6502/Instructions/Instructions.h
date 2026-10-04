@@ -38,5 +38,6 @@
 #include <e6502/Instructions/PHP.h>
 #include <e6502/Instructions/PLA.h>
 #include <e6502/Instructions/PLP.h>
+#include <e6502/Instructions/JMP.h>
 
 #endif

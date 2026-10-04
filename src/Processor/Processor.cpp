@@ -373,6 +373,19 @@ void Processor::_applyInstruction(const OpCodesAdressed& op_code, AddressingMode
             E6502_Instructions::PLP::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
         }
         break;
+
+        case JMP_A:
+        {
+            E6502_Instructions::JMP_A::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case JMP_I:
+        {
+            E6502_Instructions::JMP_I::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
         default:
         {
             std::cout << "Unknown opcode: 0x" << std::hex << static_cast<int32_t>(op_code) << std::endl;
