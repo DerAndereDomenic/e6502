@@ -45,5 +45,6 @@
 #include <e6502/Instructions/RTS.h>
 #include <e6502/Instructions/BCC.h>
 #include <e6502/Instructions/BCS.h>
+#include <e6502/Instructions/BEQ.h>
 
 #endif
