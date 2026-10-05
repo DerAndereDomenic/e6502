@@ -404,6 +404,12 @@ void Processor::_applyInstruction(const OpCodesAdressed& op_code, AddressingMode
         }
         break;
 
+        case BCC:
+        {
+            E6502_Instructions::BCC::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
         case SBC_I:
         case SBC_Z:
         case SBC_ZX:
