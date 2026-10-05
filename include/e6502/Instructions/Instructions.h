@@ -49,5 +49,6 @@
 #include <e6502/Instructions/BMI.h>
 #include <e6502/Instructions/BNE.h>
 #include <e6502/Instructions/BPL.h>
+#include <e6502/Instructions/BVC.h>
 
 #endif
