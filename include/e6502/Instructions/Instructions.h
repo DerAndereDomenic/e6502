@@ -46,5 +46,6 @@
 #include <e6502/Instructions/BCC.h>
 #include <e6502/Instructions/BCS.h>
 #include <e6502/Instructions/BEQ.h>
+#include <e6502/Instructions/BMI.h>
 
 #endif
