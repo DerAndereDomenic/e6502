@@ -48,5 +48,6 @@
 #include <e6502/Instructions/BEQ.h>
 #include <e6502/Instructions/BMI.h>
 #include <e6502/Instructions/BNE.h>
+#include <e6502/Instructions/BPL.h>
 
 #endif

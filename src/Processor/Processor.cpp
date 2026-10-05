@@ -434,6 +434,12 @@ void Processor::_applyInstruction(const OpCodesAdressed& op_code, AddressingMode
         }
         break;
 
+        case BPL:
+        {
+            E6502_Instructions::BPL::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
         case SBC_I:
         case SBC_Z:
         case SBC_ZX:
