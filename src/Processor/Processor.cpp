@@ -485,6 +485,22 @@ void Processor::_applyInstruction(const OpCodesAdressed& op_code, AddressingMode
         }
         break;
 
+        case CPX_I:
+        case CPX_Z:
+        case CPX_A:
+        {
+            E6502_Instructions::CPX::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
+        case CPY_I:
+        case CPY_Z:
+        case CPY_A:
+        {
+            E6502_Instructions::CPY::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
         default:
         {
             std::cout << "Unknown opcode: 0x" << std::hex << static_cast<int32_t>(op_code) << std::endl;

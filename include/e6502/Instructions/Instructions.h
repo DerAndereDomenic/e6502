@@ -53,5 +53,7 @@
 #include <e6502/Instructions/BVS.h>
 #include <e6502/Instructions/BIT.h>
 #include <e6502/Instructions/CMP.h>
+#include <e6502/Instructions/CPX.h>
+#include <e6502/Instructions/CPY.h>
 
 #endif
