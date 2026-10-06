@@ -19,6 +19,7 @@ void Processor::reset()
     // start.
     SP = 0xFF;
     PC = STACK_START + 1;
+    processor_status.fromByte(0x00);
 }
 
 void Processor::start()
