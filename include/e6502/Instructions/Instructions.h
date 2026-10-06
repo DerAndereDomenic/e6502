@@ -51,5 +51,6 @@
 #include <e6502/Instructions/BPL.h>
 #include <e6502/Instructions/BVC.h>
 #include <e6502/Instructions/BVS.h>
+#include <e6502/Instructions/BIT.h>
 
 #endif
