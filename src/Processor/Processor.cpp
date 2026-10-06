@@ -472,6 +472,19 @@ void Processor::_applyInstruction(const OpCodesAdressed& op_code, AddressingMode
         }
         break;
 
+        case CMP_I:
+        case CMP_Z:
+        case CMP_ZX:
+        case CMP_A:
+        case CMP_AX:
+        case CMP_AY:
+        case CMP_IX:
+        case CMP_IY:
+        {
+            E6502_Instructions::CMP::apply(PC, SP, A, X, Y, processor_status, memory, addressing_mode);
+        }
+        break;
+
         default:
         {
             std::cout << "Unknown opcode: 0x" << std::hex << static_cast<int32_t>(op_code) << std::endl;
