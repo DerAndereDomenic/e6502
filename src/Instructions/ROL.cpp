@@ -18,9 +18,10 @@ void ROL::apply(Word& PC,
         {
             Byte address       = memory[PC];
             Byte val           = memory[address];
+            Byte old_carry     = processor_status.C;
             processor_status.C = (val & 0x80) >> 7;
             val                = val << 1;
-            memory[address]    = val | processor_status.C;
+            memory[address]    = val | old_carry;
 
             ++PC;
             processor_status.checkNegative(memory[address]);
@@ -31,9 +32,10 @@ void ROL::apply(Word& PC,
         {
             Word address       = memory(PC);
             Byte val           = memory[address];
+            Byte old_carry     = processor_status.C;
             processor_status.C = (val & 0x80) >> 7;
             val                = val << 1;
-            memory[address]    = val | processor_status.C;
+            memory[address]    = val | old_carry;
             PC += 2;
             processor_status.checkNegative(memory[address]);
             processor_status.checkZero(memory[address]);
@@ -44,9 +46,10 @@ void ROL::apply(Word& PC,
             Byte address = memory[PC];
             address += X;
             Byte val           = memory[address];
+            Byte old_carry     = processor_status.C;
             processor_status.C = (val & 0x80) >> 7;
             val                = val << 1;
-            memory[address]    = val | processor_status.C;
+            memory[address]    = val | old_carry;
             ++PC;
             processor_status.checkNegative(memory[address]);
             processor_status.checkZero(memory[address]);
@@ -57,9 +60,10 @@ void ROL::apply(Word& PC,
             Word address = memory(PC);
             address += X;
             Byte val           = memory[address];
+            Byte old_carry     = processor_status.C;
             processor_status.C = (val & 0x80) >> 7;
             val                = val << 1;
-            memory[address]    = val | processor_status.C;
+            memory[address]    = val | old_carry;
             PC += 2;
             processor_status.checkNegative(memory[address]);
             processor_status.checkZero(memory[address]);
@@ -68,9 +72,10 @@ void ROL::apply(Word& PC,
         case ACCUMULATOR_10:
         {
             Byte val           = A;
+            Byte old_carry     = processor_status.C;
             processor_status.C = (val & 0x80) >> 7;
             val                = val << 1;
-            A                  = val | processor_status.C;
+            A                  = val | old_carry;
             processor_status.checkNegative(A);
             processor_status.checkZero(A);
         }
