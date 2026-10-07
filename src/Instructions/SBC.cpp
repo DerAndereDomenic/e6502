@@ -76,10 +76,10 @@ void SBC::apply(Word& PC,
         break;
     }
 
-    Word result = op1 - op2 - (1 - processor_status.C);
-    A           = (Byte)result;
-    processor_status.checkOverflow(op1, op2, processor_status.C);
-    processor_status.checkCarry(result);
+    Word result        = (int8_t)op1 - (int8_t)op2 - (1 - processor_status.C);
+    A                  = (Byte)result;
+    processor_status.V = ((op1 ^ result) & (op1 ^ op2) & 0x80) != 0;
+    processor_status.C = (op1 >= op2 + (1 - processor_status.C)) ? 1 : 0;
 
     processor_status.checkZero(A);
     processor_status.checkNegative(A);
