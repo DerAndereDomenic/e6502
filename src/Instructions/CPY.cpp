@@ -40,7 +40,7 @@ void CPY::apply(Word& PC,
 
     Byte result = op1 - op2;
 
-    processor_status.checkCarry(result);
+    processor_status.C = ((int8_t)op1 >= (int8_t)op2) ? 1 : 0;
     processor_status.checkZero(result);
     processor_status.checkNegative(result);
 }
