@@ -38,7 +38,7 @@ public:
 private:
     void _applyInstruction(const OpCodesAdressed& op_code, AddressingModes& addressing_mode);
 
-    // private:
+public:
     Word PC;                          /**< Program Counter */
     Byte SP;                          /**< Stack Pointer */
     Byte A;                           /**< Accumulator */
